@@ -1,17 +1,63 @@
+// Hier deine IDs eintragen:
+var GTM_ID    = 'GTM-XXXXXXX';        // z.B. GTM-AB12CD3
+var PIXEL_ID  = 'XXXXXXXXXXXXXXXXX';  // z.B. 1234567890123456
+
 (function () {
-  if (localStorage.getItem('cookie-ok')) return;
+  var consent = localStorage.getItem('cookie-consent');
+  if (consent === 'all')       { loadTracking(); return; }
+  if (consent === 'necessary') { return; }
 
   var banner = document.createElement('div');
   banner.id = 'cookie-banner';
   banner.innerHTML =
-    '<p>Diese Website verwendet technisch notwendige Verbindungen (Hosting, Google Fonts). ' +
-    'Es werden keine Tracking-Cookies gesetzt. ' +
-    '<a href="datenschutz.html">Mehr erfahren</a></p>' +
-    '<button id="cookie-ok">Verstanden</button>';
+    '<div id="cb-text">' +
+      '<p class="cb-title">Cookies &amp; Datenschutz</p>' +
+      '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), um meine Website zu verbessern und Reichweite zu messen. Du entscheidest selbst.</p>' +
+      '<a href="datenschutz.html">Datenschutzerklärung</a>' +
+    '</div>' +
+    '<div id="cb-btns">' +
+      '<button id="cb-necessary">Nur notwendige</button>' +
+      '<button id="cb-accept">Alle akzeptieren</button>' +
+    '</div>';
   document.body.appendChild(banner);
 
-  document.getElementById('cookie-ok').addEventListener('click', function () {
-    localStorage.setItem('cookie-ok', '1');
+  document.getElementById('cb-accept').addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'all');
+    banner.remove();
+    loadTracking();
+  });
+
+  document.getElementById('cb-necessary').addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'necessary');
     banner.remove();
   });
 })();
+
+function loadTracking() {
+  // Google Tag Manager
+  if (GTM_ID && GTM_ID !== 'GTM-XXXXXXX') {
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
+  }
+
+  // Meta Pixel
+  if (PIXEL_ID && PIXEL_ID !== 'XXXXXXXXXXXXXXXXX') {
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+}
