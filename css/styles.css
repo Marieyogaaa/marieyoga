@@ -651,6 +651,29 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 #yoga-online  { background: rgba(193,174,226,0.48); }
 .angebote-img { height: 460px; border-radius: 5px; overflow: hidden; }
 .angebote-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 5px; }
+
+/* Overlapping two-image layout for Physio */
+.physio-stack { overflow: visible; background: transparent; }
+.physio-stack .ps-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 78%;
+  height: 88%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.physio-stack .ps-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.physio-stack .ps-accent {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 56%;
+  height: 60%;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 4px solid var(--cream);
+  box-shadow: -6px -6px 28px rgba(52,79,56,0.14);
+}
+.physio-stack .ps-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .angebote-content { display: flex; flex-direction: column; gap: 20px; }
 .angebote-icon { width: 52px; height: 52px; object-fit: contain; }
 .angebote-content h2 { font-size: clamp(24px, 2.8vw, 36px); }
