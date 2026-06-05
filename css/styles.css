@@ -153,10 +153,11 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   display: block;
 }
 .nav-brand {
-  font-family: var(--f-h);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  color: var(--green);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--wisteria);
   line-height: 1;
 }
 .nav-links {
