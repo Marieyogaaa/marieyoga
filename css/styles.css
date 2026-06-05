@@ -229,25 +229,34 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 /* Mega-menu */
 .nav-item { position: relative; }
 .nav-item > a { white-space: nowrap; }
+
+/* Unsichtbare Brücke zwischen Link und Dropdown – verhindert Schließen beim Überfahren der Lücke */
+.nav-item.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 18px;
+}
+
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 14px);
+  top: calc(100% + 18px);
   left: 50%;
-  transform: translateX(-50%);
-  background: rgba(253,249,237,0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(52,79,56,0.1);
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--cream);
+  border: 1.5px solid rgba(52,79,56,0.18);
+  border-top: 3px solid var(--wisteria);
   border-radius: var(--r);
-  padding: 8px 0;
-  min-width: 200px;
+  padding: 10px 0;
+  min-width: 220px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
-  transform: translateX(-50%) translateY(-6px);
-  box-shadow: 0 12px 40px rgba(52,79,56,0.13);
-  z-index: 10;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 16px 48px rgba(52,79,56,0.18);
+  z-index: 300;
 }
 .nav-item:hover .nav-dropdown,
 .nav-item.open .nav-dropdown {
@@ -258,19 +267,29 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .nav-dropdown a {
   display: block;
-  padding: 10px 22px;
+  padding: 12px 24px;
   font-size: 14px;
   color: var(--green);
   font-family: var(--f-b);
-  transition: background 0.15s, color 0.15s;
+  border-left: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
 }
 .nav-dropdown a::after { display: none !important; }
-.nav-dropdown a:hover { background: rgba(193,174,226,0.18); color: var(--green); }
+.nav-dropdown a:hover {
+  background: rgba(193,174,226,0.22);
+  border-left-color: var(--wisteria);
+}
 .nav-item > a.has-caret::after {
   content: ' ▾';
-  font-size: 10px;
-  opacity: 0.6;
+  font-size: 11px;
+  opacity: 0.7;
   vertical-align: middle;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+.nav-item:hover > a.has-caret::after,
+.nav-item.open > a.has-caret::after {
+  transform: rotate(180deg);
 }
 
 .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }

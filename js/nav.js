@@ -23,12 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
     burger.setAttribute('aria-expanded', open);
   });
 
-  // Mega-menu: tap/click on mobile to toggle dropdown
-  document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      if (window.innerWidth <= 768) {
+  // Mega-menu: tap/click to toggle on touch/mobile, hover handled by CSS on desktop
+  document.querySelectorAll('.nav-item.has-dropdown').forEach(function (item) {
+    var trigger = item.querySelector('a');
+
+    // Desktop: kleine Verzögerung beim Schließen, damit man das Dropdown erreicht
+    var closeTimer;
+    item.addEventListener('mouseenter', function () {
+      clearTimeout(closeTimer);
+    });
+    item.addEventListener('mouseleave', function () {
+      closeTimer = setTimeout(function () {
+        item.classList.remove('open');
+      }, 120);
+    });
+
+    // Touch/Mobile: Click öffnet/schließt
+    trigger.addEventListener('click', function (e) {
+      if (window.innerWidth <= 900) {
         e.preventDefault();
-        var item = this.closest('.nav-item');
         var wasOpen = item.classList.contains('open');
         document.querySelectorAll('.nav-item').forEach(function (i) { i.classList.remove('open'); });
         if (!wasOpen) item.classList.add('open');
