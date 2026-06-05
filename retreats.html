@@ -32,25 +32,67 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="page-hero-green">
-    <div class="container">
-      <div class="page-hero-green-inner">
-        <div>
-          <span class="label">Retreats 2026</span>
-          <h1>Wander &amp; Wonder 2026</h1>
-          <p>Drei Tage in der Natur. Klein, echt, ohne festes Programm.</p>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;">
-            <a href="buchen.html" class="btn btn-solid-white">Jetzt buchen</a>
-            <a href="#programm" class="btn btn-ghost">Mehr erfahren</a>
-          </div>
-        </div>
-        <div class="page-hero-img">
-          <image-slot id="retreat-main" shape="rounded" radius="0" src="uploads/retreat-group-table.jpg" placeholder="Retreat Landschaft – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
-        </div>
+  <!-- Hero Slider -->
+  <section class="rhs">
+    <div class="rhs-track">
+      <div class="rhs-slide active" style="background-image:url('uploads/retreat-spitzingsee.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-group-hike.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-mountain-walk.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-sunset-hike.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-meadow.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-sunset-view.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-yoga-outdoor.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-outdoor.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-group-table.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-relaxation.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-breakfast.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-yoga-meadow.jpg')"></div>
+    </div>
+    <div class="rhs-overlay"></div>
+    <div class="container rhs-content">
+      <span class="label">Retreats 2026</span>
+      <h1>Wander &amp; Wonder 2026</h1>
+      <p>Drei Tage in den Bergen. Klein, echt, ohne festes Programm.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="buchen.html" class="btn btn-solid-white">Jetzt buchen</a>
+        <a href="#programm" class="btn btn-ghost">Mehr erfahren</a>
       </div>
     </div>
+    <button class="rhs-arrow rhs-prev" aria-label="Vorheriges Bild">&#8592;</button>
+    <button class="rhs-arrow rhs-next" aria-label="Nächstes Bild">&#8594;</button>
+    <div class="rhs-dots">
+      <button class="rhs-dot active"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+      <button class="rhs-dot"></button>
+    </div>
   </section>
+  <script>
+  (function(){
+    var slides = document.querySelectorAll('.rhs-slide');
+    var dots   = document.querySelectorAll('.rhs-dot');
+    var cur    = 0;
+    function goTo(n){
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    var timer = setInterval(function(){ goTo(cur+1); }, 5000);
+    dots.forEach(function(d,i){ d.onclick = function(){ clearInterval(timer); goTo(i); timer = setInterval(function(){ goTo(cur+1); },5000); }; });
+    document.querySelector('.rhs-prev').onclick = function(){ clearInterval(timer); goTo(cur-1); timer = setInterval(function(){ goTo(cur+1); },5000); };
+    document.querySelector('.rhs-next').onclick = function(){ clearInterval(timer); goTo(cur+1); timer = setInterval(function(){ goTo(cur+1); },5000); };
+  })();
+  </script>
 
   <!-- Intro -->
   <section class="retreat-content" id="programm">

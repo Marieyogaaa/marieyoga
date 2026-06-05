@@ -691,6 +691,92 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .booking-info p { font-size: 15px; color: var(--text-muted); }
 
 /* ============================================
+   Retreat Hero Slider
+   ============================================ */
+.rhs {
+  position: relative;
+  height: calc(100vh - var(--nav-h));
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.rhs-track { position: absolute; inset: 0; }
+.rhs-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.rhs-slide.active { opacity: 1; }
+.rhs-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,50,32,0.78) 0%, rgba(30,50,32,0.52) 55%, rgba(0,0,0,0.22) 100%);
+  z-index: 1;
+}
+.rhs-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: min(660px, 58vw);
+  margin-left: max(var(--pad-x), calc((100vw - var(--max-w)) / 2 + var(--pad-x)));
+  padding: var(--pad-y) 0;
+}
+.rhs-content h1 { color: var(--cream); max-width: 540px; }
+.rhs-content .label { color: var(--wisteria); }
+.rhs-content p { font-size: 18px; color: rgba(253,249,237,0.85); max-width: 460px; }
+.rhs-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(253,249,237,0.15);
+  border: 1px solid rgba(253,249,237,0.3);
+  color: var(--cream);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.rhs-arrow:hover { background: rgba(253,249,237,0.28); }
+.rhs-prev { left: 24px; }
+.rhs-next { right: 24px; }
+.rhs-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 7px;
+}
+.rhs-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(253,249,237,0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+.rhs-dot.active { background: var(--cream); transform: scale(1.35); }
+@media (max-width: 680px) {
+  .rhs-content { max-width: 100%; margin-left: 0; padding: var(--pad-y) var(--pad-x); }
+  .rhs-arrow { display: none; }
+}
+
+/* ============================================
    FAQ
    ============================================ */
 .faq-item {
