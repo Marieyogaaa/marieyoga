@@ -142,8 +142,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .nav-logo img {
   height: 48px;
   width: 48px;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain;
   display: block;
 }
 .nav-links {
@@ -196,25 +195,36 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
    Hero
    ============================================ */
 .hero {
+  position: relative;
   min-height: calc(100vh - var(--nav-h));
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
 }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,50,32,0.78) 0%, rgba(30,50,32,0.55) 55%, rgba(0,0,0,0.28) 100%);
+  z-index: 1;
+}
 .hero-text {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 24px;
-  padding: var(--pad-y) 56px var(--pad-y) var(--pad-x);
+  padding: var(--pad-y) var(--pad-x);
+  max-width: min(660px, 58vw);
+  margin-left: max(var(--pad-x), calc((100vw - var(--max-w)) / 2 + var(--pad-x)));
 }
-@media (min-width: 1280px) {
-  .hero-text { padding-left: calc((100vw - var(--max-w)) / 2 + var(--pad-x)); }
-}
-.hero-text h1 { max-width: 520px; }
+.hero-text h1 { color: var(--cream); max-width: 540px; }
+.hero-text .label { color: var(--wisteria); }
 .hero-text .sub {
   font-size: 18px;
-  color: var(--text-muted);
+  color: rgba(253,249,237,0.85);
   max-width: 460px;
 }
 .hero-ctas {
@@ -222,12 +232,6 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   gap: 14px;
   flex-wrap: wrap;
   margin-top: 8px;
-}
-.hero-img {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--r-lg) 0 0 var(--r-lg);
-  margin: 32px 0;
 }
 
 /* ============================================
@@ -444,7 +448,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .footer-brand img {
   height: 68px; width: 68px;
-  border-radius: 10px;
+  object-fit: contain;
   margin-bottom: 16px;
 }
 .footer-brand p { font-size: 14px; color: rgba(253,249,237,0.5); line-height: 1.65; }
@@ -674,9 +678,8 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
    Responsive – Tablet (≤900px)
    ============================================ */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-img { min-height: 420px; margin: 0; border-radius: var(--r-lg); }
-  .hero-text { padding: var(--pad-y) var(--pad-x) 40px; }
+  .hero { min-height: 85vh; }
+  .hero-text { max-width: 100%; margin-left: 0; padding: var(--pad-y) var(--pad-x); }
 
   .about-inner,
   .retreat-inner,
