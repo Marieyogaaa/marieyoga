@@ -287,7 +287,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .about-img-wrap {
   height: 560px;
-  border-radius: var(--r-lg);
+  border-radius: 5px;
   overflow: hidden;
 }
 .about-text {
@@ -370,7 +370,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .retreat-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
 .retreat-img-wrap {
   height: 520px;
-  border-radius: var(--r-lg);
+  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -528,7 +528,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .page-hero-img {
   height: 560px;
-  border-radius: var(--r-lg);
+  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -546,7 +546,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   position: sticky;
   top: calc(var(--nav-h) + 24px);
 }
-.ueber-img-wrap { height: 580px; border-radius: var(--r-lg); overflow: hidden; }
+.ueber-img-wrap { height: 580px; border-radius: 5px; overflow: hidden; }
 .ueber-text { display: flex; flex-direction: column; gap: 22px; }
 .ueber-text p { color: var(--text-muted); }
 .skills-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
@@ -572,7 +572,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .angebote-item:first-child { border-top: none; padding-top: 0; }
 .angebote-item:nth-child(even) .angebote-img { order: -1; }
-.angebote-img { height: 460px; border-radius: var(--r-lg); overflow: hidden; }
+.angebote-img { height: 460px; border-radius: 5px; overflow: hidden; }
 .angebote-content { display: flex; flex-direction: column; gap: 20px; }
 .angebote-icon { width: 52px; height: 52px; object-fit: contain; }
 .angebote-content h2 { font-size: clamp(24px, 2.8vw, 36px); }
