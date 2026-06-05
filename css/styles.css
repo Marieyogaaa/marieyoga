@@ -31,6 +31,7 @@ body {
   color: var(--green);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
+  padding-top: var(--nav-h);
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -126,12 +127,21 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
    Navigation
    ============================================ */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: var(--cream);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(253,249,237,0.0);
   height: var(--nav-h);
-  border-bottom: 1px solid rgba(52,79,56,0.1);
+  border-bottom: 1px solid rgba(52,79,56,0);
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+}
+.nav.nav-scrolled {
+  background: rgba(253,249,237,0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: rgba(52,79,56,0.1);
 }
 .nav-inner {
   display: flex;
@@ -201,6 +211,53 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   background: var(--green);
   transition: all 0.25s;
 }
+/* Mega-menu */
+.nav-item { position: relative; }
+.nav-item > a { white-space: nowrap; }
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(253,249,237,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(52,79,56,0.1);
+  border-radius: var(--r);
+  padding: 8px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 12px 40px rgba(52,79,56,0.13);
+  z-index: 10;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item.open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown a {
+  display: block;
+  padding: 10px 22px;
+  font-size: 14px;
+  color: var(--green);
+  font-family: var(--f-b);
+  transition: background 0.15s, color 0.15s;
+}
+.nav-dropdown a::after { display: none !important; }
+.nav-dropdown a:hover { background: rgba(193,174,226,0.18); color: var(--green); }
+.nav-item > a.has-caret::after {
+  content: ' ▾';
+  font-size: 10px;
+  opacity: 0.6;
+  vertical-align: middle;
+}
+
 .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 .nav-burger.open span:nth-child(2) { opacity: 0; }
 .nav-burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
@@ -211,6 +268,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .hero {
   position: relative;
   min-height: calc(100vh - var(--nav-h));
+  margin-top: calc(-1 * var(--nav-h));
   display: flex;
   align-items: center;
   background-size: cover;
@@ -561,18 +619,22 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 /* ============================================
    Angebote page
    ============================================ */
-.angebote-list { padding: var(--pad-y) 0; }
+.angebote-list { padding: var(--pad-y) 0; display: flex; flex-direction: column; gap: 32px; }
 .angebote-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding: var(--pad-y) 0;
-  border-top: 1px solid rgba(52,79,56,0.08);
+  padding: 60px;
+  border-radius: var(--r-lg);
 }
-.angebote-item:first-child { border-top: none; padding-top: 0; }
 .angebote-item:nth-child(even) .angebote-img { order: -1; }
+#physio    { background: rgba(186,200,189,0.35); }
+#yoga-outdoor { background: rgba(193,174,226,0.28); }
+#yoga-1zu1 { background: rgba(52,79,56,0.07); }
+#yoga-online  { background: rgba(193,174,226,0.48); }
 .angebote-img { height: 460px; border-radius: 5px; overflow: hidden; }
+.angebote-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 5px; }
 .angebote-content { display: flex; flex-direction: column; gap: 20px; }
 .angebote-icon { width: 52px; height: 52px; object-fit: contain; }
 .angebote-content h2 { font-size: clamp(24px, 2.8vw, 36px); }
@@ -695,8 +757,9 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
    ============================================ */
 .rhs {
   position: relative;
-  height: calc(100vh - var(--nav-h));
+  height: 100vh;
   min-height: 560px;
+  margin-top: calc(-1 * var(--nav-h));
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -895,6 +958,29 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   #cb-btns button { flex: 1; }
 }
 
+/* Instagram Feed */
+.ig-feed-section { padding: var(--pad-y) 0; background: var(--cream); }
+.ig-feed-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.ig-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 12px;
+}
+.ig-tile {
+  aspect-ratio: 1;
+  border-radius: var(--r);
+  display: block;
+  transition: opacity 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+.ig-tile:hover { opacity: 0.85; transform: scale(1.02); }
+
 /* ============================================
    Responsive – Tablet (≤900px)
    ============================================ */
@@ -907,8 +993,8 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .retreat-content .two-col,
   .page-hero-green-inner,
   .ueber-grid,
-  .angebote-item,
   .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+  .angebote-item { grid-template-columns: 1fr; gap: 40px; padding: 48px 36px; }
 
   .about-img-wrap,
   .retreat-img-wrap,
@@ -949,14 +1035,41 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   }
   .nav-links.open { display: flex; }
   .nav-burger { display: flex; }
-  .nav { position: relative; }
-  .nav.sticky { position: sticky; }
+  .nav { position: fixed; background: rgba(253,249,237,0.96); border-bottom-color: rgba(52,79,56,0.1); }
+  /* Mobile mega-menu: dropdown as inline list */
+  .nav-item { width: 100%; }
+  .nav-item > a { width: 100%; display: flex; justify-content: space-between; }
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid rgba(193,174,226,0.5);
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 4px 0 4px 16px;
+    min-width: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: none;
+  }
+  .nav-item.open .nav-dropdown { display: block; }
+  .nav-dropdown a { padding: 8px 12px; font-size: 14px; }
 
   .offers-grid { grid-template-columns: 1fr; }
   .offer-card { padding: 36px 28px; }
 
   .event-item { grid-template-columns: 1fr; gap: 6px; }
   .ev-price { text-align: left; }
+
+  .angebote-item { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; }
+  .angebote-item:nth-child(even) .angebote-img { order: 0; }
+  .angebote-img { height: 280px; }
+
+  .ig-feed-grid { grid-template-columns: repeat(3,1fr); }
+  .ig-feed-header { flex-direction: column; align-items: flex-start; }
 
   .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
   .footer-legal { flex-direction: column; align-items: center; gap: 10px; }

@@ -21,9 +21,32 @@
       <div class="nav-links">
         <a href="index.html">Start</a>
         <a href="ueber-mich.html">Über mich</a>
-        <a href="angebote.html">Angebote</a>
-        <a href="retreats.html" class="active">Retreats</a>
-        <a href="events.html">Events</a>
+        <div class="nav-item has-dropdown">
+          <a href="angebote.html" class="has-caret">Angebote</a>
+          <div class="nav-dropdown">
+            <a href="angebote.html#physio">Physiotherapie</a>
+            <a href="angebote.html#yoga-outdoor">Yoga Outdoor</a>
+            <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+            <a href="angebote.html#yoga-online">Online Yoga</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="retreats.html" class="has-caret">Retreats</a>
+          <div class="nav-dropdown">
+            <a href="retreats.html">Wander &amp; Wonder 2026</a>
+            <a href="retreats.html#juli">Juli · InBalance</a>
+            <a href="retreats.html#august">August · Physio &amp; Yoga</a>
+            <a href="retreats.html#september">September · Somatic</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="events.html" class="has-caret">Events</a>
+          <div class="nav-dropdown">
+            <a href="events.html">Alle Events</a>
+            <a href="events.html#midsommar">Midsommar · 19. Juni</a>
+            <a href="events.html#outdoor">Outdoor Yoga</a>
+          </div>
+        </div>
         <a href="buchen.html" class="btn btn-primary">Buchen</a>
       </div>
       <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
@@ -35,7 +58,8 @@
   <!-- Hero Slider -->
   <section class="rhs">
     <div class="rhs-track">
-      <div class="rhs-slide active" style="background-image:url('uploads/retreat-spitzingsee.jpg')"></div>
+      <div class="rhs-slide active" style="background-image:url('uploads/retreat-yoga-meadow.jpg')"></div>
+      <div class="rhs-slide" style="background-image:url('uploads/retreat-spitzingsee.jpg')"></div>
       <div class="rhs-slide" style="background-image:url('uploads/retreat-group-hike.jpg')"></div>
       <div class="rhs-slide" style="background-image:url('uploads/retreat-mountain-walk.jpg')"></div>
       <div class="rhs-slide" style="background-image:url('uploads/retreat-sunset-hike.jpg')"></div>
@@ -46,7 +70,6 @@
       <div class="rhs-slide" style="background-image:url('uploads/retreat-group-table.jpg')"></div>
       <div class="rhs-slide" style="background-image:url('uploads/retreat-relaxation.jpg')"></div>
       <div class="rhs-slide" style="background-image:url('uploads/retreat-breakfast.jpg')"></div>
-      <div class="rhs-slide" style="background-image:url('uploads/retreat-yoga-meadow.jpg')"></div>
     </div>
     <div class="rhs-overlay"></div>
     <div class="container rhs-content">
@@ -125,22 +148,22 @@
         <h2 style="margin-bottom:8px;">Drei Wochenenden.</h2>
         <p style="color:var(--text-muted);max-width:520px;margin-bottom:40px;font-size:17px;">Alle Termine auf der Schönfeldhütte am Spitzingsee. Freitag bis Sonntag.</p>
         <div class="dates-grid">
-          <div class="date-card">
+          <div class="date-card" id="juli">
             <span class="d-month">3.–5. Juli 2026</span>
             <span class="cs-badge" style="margin-bottom:8px;">Nur für Frauen</span>
             <div class="d-title">InBalance</div>
             <p class="d-meta">Mit Special Guest Laura Marks. Schönfeldhütte am Spitzingsee.</p>
             <div class="d-price" style="font-size:16px;color:var(--text-muted);">Preis folgt in Kürze</div>
-            <a href="mailto:info@marieyoga.de" class="btn btn-outline" style="margin-top:16px;font-size:14px;padding:12px 24px;">Platz reservieren</a>
+            <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px;font-size:14px;padding:12px 24px;">Save the Date ansehen</a>
           </div>
-          <div class="date-card">
+          <div class="date-card" id="august">
             <span class="d-month">7.–9. August 2026</span>
             <div class="d-title">Physio &amp; Yoga</div>
             <p class="d-meta">Anatomisches Physio-Wissen im Fokus der Yoga-Praxis. Schönfeldhütte.</p>
             <div class="d-price">399 €</div>
             <a href="buchen.html" class="btn btn-outline" style="margin-top:16px;font-size:14px;padding:12px 24px;">Jetzt buchen</a>
           </div>
-          <div class="date-card">
+          <div class="date-card" id="september">
             <span class="d-month">18.–20. September 2026</span>
             <div class="d-title">Yoga &amp; Somatic</div>
             <p class="d-meta">Yoga und Somatic Beings. Schönfeldhütte.</p>
@@ -295,7 +318,7 @@
         <div class="footer-contact">
           <h4>Kontakt</h4>
           <a href="mailto:info@marieyoga.de">info@marieyoga.de</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
       <div class="footer-bottom">

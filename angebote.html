@@ -21,9 +21,32 @@
       <div class="nav-links">
         <a href="index.html">Start</a>
         <a href="ueber-mich.html">Über mich</a>
-        <a href="angebote.html" class="active">Angebote</a>
-        <a href="retreats.html">Retreats</a>
-        <a href="events.html">Events</a>
+        <div class="nav-item has-dropdown">
+          <a href="angebote.html" class="has-caret">Angebote</a>
+          <div class="nav-dropdown">
+            <a href="angebote.html#physio">Physiotherapie</a>
+            <a href="angebote.html#yoga-outdoor">Yoga Outdoor</a>
+            <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+            <a href="angebote.html#yoga-online">Online Yoga</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="retreats.html" class="has-caret">Retreats</a>
+          <div class="nav-dropdown">
+            <a href="retreats.html">Wander &amp; Wonder 2026</a>
+            <a href="retreats.html#juli">Juli · InBalance</a>
+            <a href="retreats.html#august">August · Physio &amp; Yoga</a>
+            <a href="retreats.html#september">September · Somatic</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="events.html" class="has-caret">Events</a>
+          <div class="nav-dropdown">
+            <a href="events.html">Alle Events</a>
+            <a href="events.html#midsommar">Midsommar · 19. Juni</a>
+            <a href="events.html#outdoor">Outdoor Yoga</a>
+          </div>
+        </div>
         <a href="buchen.html" class="btn btn-primary">Buchen</a>
       </div>
       <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
@@ -47,7 +70,7 @@
       <!-- Physio 1:1 -->
       <div class="angebote-item" id="physio">
         <div class="angebote-content">
-          <img src="assets/logo-icon-lila-transparent.png" alt="" class="angebote-icon">
+
           <span class="label">Physiotherapie</span>
           <h2>Physiotherapie für Menschen, die aktiv bleiben wollen.</h2>
           <p>Du kommst zu mir, wenn du deinen Körper wirklich verstehen willst. Nicht nur behandelt werden, sondern lernen, was ihn bewegt und was ihm schadet.</p>
@@ -78,10 +101,12 @@
       <!-- Yoga Outdoor -->
       <div class="angebote-item" id="yoga-outdoor">
         <div class="angebote-img">
-          <image-slot id="angebote-outdoor" shape="rounded" radius="0" src="uploads/yoga-outdoor-isar.jpg" placeholder="Outdoor Yoga Isar – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+          <video class="angebote-video" autoplay muted loop playsinline>
+            <source src="uploads/isaryoga.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="angebote-content">
-          <img src="assets/logo-icon-lila-transparent.png" alt="" class="angebote-icon">
+
           <span class="label">Yoga Outdoor</span>
           <h2>Yoga an der Isar. Sonntags, 9 Uhr.</h2>
           <p>Kein Studio, kein Spiegel. Dafür Gras, Morgenlicht und Isarluft.</p>
@@ -109,7 +134,7 @@
       <!-- 1:1 Yoga -->
       <div class="angebote-item" id="yoga-1zu1">
         <div class="angebote-content">
-          <img src="assets/logo-icon-lila-transparent.png" alt="" class="angebote-icon">
+
           <span class="label">1:1 Yoga</span>
           <h2>Yoga, das wirklich zu dir passt.</h2>
           <p>Im Gruppenunterricht muss ich auf alle eingehen. Im 1:1 geht es nur um dich.</p>
@@ -139,7 +164,7 @@
           <image-slot id="angebote-online" shape="rounded" radius="0" src="uploads/portrait-standing.jpg" placeholder="Online Yoga – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
         </div>
         <div class="angebote-content">
-          <img src="assets/logo-icon-lila-transparent.png" alt="" class="angebote-icon">
+
           <span class="label">Online Yoga</span>
           <h2>Yoga, wenn du nicht nach draußen kannst.</h2>
           <p>Dieselbe Qualität, andere Umgebung. Meine Online-Kurse laufen live oder als Hybrid. Für alle, die nicht in München wohnen oder einfach flexibel bleiben wollen.</p>
@@ -199,7 +224,7 @@
         <div class="footer-contact">
           <h4>Kontakt</h4>
           <a href="mailto:info@marieyoga.de">info@marieyoga.de</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
       <div class="footer-bottom">

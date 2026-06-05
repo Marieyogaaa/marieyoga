@@ -21,9 +21,32 @@
       <div class="nav-links">
         <a href="index.html">Start</a>
         <a href="ueber-mich.html">Über mich</a>
-        <a href="angebote.html">Angebote</a>
-        <a href="retreats.html">Retreats</a>
-        <a href="events.html" class="active">Events</a>
+        <div class="nav-item has-dropdown">
+          <a href="angebote.html" class="has-caret">Angebote</a>
+          <div class="nav-dropdown">
+            <a href="angebote.html#physio">Physiotherapie</a>
+            <a href="angebote.html#yoga-outdoor">Yoga Outdoor</a>
+            <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+            <a href="angebote.html#yoga-online">Online Yoga</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="retreats.html" class="has-caret">Retreats</a>
+          <div class="nav-dropdown">
+            <a href="retreats.html">Wander &amp; Wonder 2026</a>
+            <a href="retreats.html#juli">Juli · InBalance</a>
+            <a href="retreats.html#august">August · Physio &amp; Yoga</a>
+            <a href="retreats.html#september">September · Somatic</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <a href="events.html" class="has-caret">Events</a>
+          <div class="nav-dropdown">
+            <a href="events.html">Alle Events</a>
+            <a href="events.html#midsommar">Midsommar · 19. Juni</a>
+            <a href="events.html#outdoor">Outdoor Yoga</a>
+          </div>
+        </div>
         <a href="buchen.html" class="btn btn-primary">Buchen</a>
       </div>
       <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
@@ -44,7 +67,7 @@
     <div class="container">
 
       <!-- Featured: Midsommar -->
-      <div class="event-featured">
+      <div class="event-featured" id="midsommar">
         <div>
           <span class="label">Aktuell · 19. Juni 2026</span>
           <h3>Midsommar</h3>
@@ -53,7 +76,7 @@
         </div>
         <div class="ev-feat-cta">
           <span class="ev-feat-price">Fr, 19. Juni · 18:30</span>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-primary">Auf Instagram folgen</a>
+          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="btn btn-primary">Event auf Instagram</a>
         </div>
       </div>
 
@@ -61,7 +84,7 @@
       <span class="label" style="margin-bottom:20px;">Alle Termine</span>
       <ul class="events-list">
 
-        <li class="event-item">
+        <li class="event-item" id="outdoor">
           <div class="ev-date">So · 9:00 Uhr<br>Do · 18:30 Uhr</div>
           <div class="ev-info">
             <h3>Outdoor Yoga</h3>
@@ -92,8 +115,36 @@
 
       </ul>
 
+      <!-- Private Events -->
+      <div style="margin-top:80px;" id="private-events">
+        <span class="label">Auf Anfrage</span>
+        <h2 style="margin-bottom:16px;">JGA, Geburtstag &amp; private Feiern.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--green);padding:var(--pad-y) 0;color:var(--cream);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <span class="label" style="color:var(--wisteria);">Private Events</span>
+          <h2 style="color:var(--cream);">Yoga für deinen besonderen Moment.</h2>
+          <p style="color:rgba(253,249,237,0.8);">Ein JGA, ein runder Geburtstag, ein Abend mit deinen liebsten Menschen. Ich komme zu euch oder wir suchen einen schönen Ort in München und Umgebung.</p>
+          <p style="color:rgba(253,249,237,0.8);">Was ich anbiete: eine Yoga-Einheit, die zur Gruppe und zum Moment passt. Kein Einheits-Format, sondern abgestimmt auf euch. Ob draußen an der Isar, in einer Halle oder auf einer Dachterrasse — ich freue mich über eure Anfrage.</p>
+          <p style="color:rgba(253,249,237,0.8);font-size:15px;">Bilder des Events folgen.</p>
+          <a href="mailto:info@marieyoga.de" class="btn btn-solid-white" style="align-self:flex-start;">Anfrage stellen</a>
+        </div>
+        <div style="height:440px;border-radius:var(--r-lg);background:rgba(253,249,237,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(253,249,237,0.4);border:1px dashed rgba(253,249,237,0.2);">
+          Bilder folgen
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="events-content" style="padding-top:60px;">
+    <div class="container">
       <!-- Team Events Coming Soon -->
-      <div style="margin-top:80px;padding:48px 52px;border:1px solid rgba(52,79,56,0.1);border-radius:var(--r-lg);display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;">
+      <div style="padding:48px 52px;border:1px solid rgba(52,79,56,0.1);border-radius:var(--r-lg);display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;">
         <div>
           <span class="cs-badge" style="margin-bottom:12px;">Coming soon</span>
           <h3 style="font-size:26px;margin-bottom:10px;">Team Events</h3>
@@ -107,15 +158,25 @@
     </div>
   </section>
 
-  <!-- Instagram Note -->
-  <section style="background:var(--white);padding:80px 0;">
-    <div class="container" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
-      <div style="width:56px;height:56px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;">
-        <img src="assets/logo-icon-lila-transparent.png" alt="" style="width:36px;height:36px;opacity:0.6;">
+  <!-- Instagram Feed -->
+  <section class="ig-feed-section">
+    <div class="container">
+      <div class="ig-feed-header">
+        <div>
+          <span class="label">Instagram</span>
+          <h2>@marieyogaaa</h2>
+          <p style="color:var(--text-muted);margin-top:8px;">Neue Events und Termine kündige ich zuerst auf Instagram an.</p>
+        </div>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="btn btn-primary">Auf Instagram folgen</a>
       </div>
-      <h2 style="max-width:480px;">Aktuelle Termine immer auf Instagram.</h2>
-      <p style="color:var(--text-muted);max-width:400px;">Neue Events kündige ich zuerst auf Instagram und in der WhatsApp-Community an.</p>
-      <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:8px;">Instagram folgen</a>
+      <div class="ig-feed-grid">
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(193,174,226,0.35);"></a>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(186,200,189,0.45);"></a>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(52,79,56,0.12);"></a>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(193,174,226,0.55);"></a>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(186,200,189,0.25);"></a>
+        <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" class="ig-tile" style="background:rgba(52,79,56,0.08);"></a>
+      </div>
     </div>
   </section>
 
@@ -137,7 +198,7 @@
         <div class="footer-contact">
           <h4>Kontakt</h4>
           <a href="mailto:info@marieyoga.de">info@marieyoga.de</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
       <div class="footer-bottom">
