@@ -691,6 +691,47 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .booking-info p { font-size: 15px; color: var(--text-muted); }
 
 /* ============================================
+   FAQ
+   ============================================ */
+.faq-item {
+  border-top: 1px solid rgba(52,79,56,0.1);
+  padding: 0;
+}
+.faq-item:last-child { border-bottom: 1px solid rgba(52,79,56,0.1); }
+.faq-item summary {
+  font-family: var(--f-h);
+  font-size: 20px;
+  color: var(--green);
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--f-b);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--wisteria);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item p {
+  font-size: 16px;
+  color: var(--text-muted);
+  padding-bottom: 22px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ============================================
    Cookie Banner
    ============================================ */
 #cookie-banner {
