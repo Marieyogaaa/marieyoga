@@ -574,6 +574,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .angebote-item:nth-child(even) .angebote-img { order: -1; }
 .angebote-img { height: 460px; border-radius: var(--r-lg); overflow: hidden; }
 .angebote-content { display: flex; flex-direction: column; gap: 20px; }
+.angebote-icon { width: 52px; height: 52px; object-fit: contain; }
 .angebote-content h2 { font-size: clamp(24px, 2.8vw, 36px); }
 .angebote-content p { color: var(--text-muted); }
 .price-block {
