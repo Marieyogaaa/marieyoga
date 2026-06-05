@@ -675,6 +675,62 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .booking-info p { font-size: 15px; color: var(--text-muted); }
 
 /* ============================================
+   Cookie Banner
+   ============================================ */
+#cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: var(--green);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 28px;
+  border-radius: 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  max-width: min(740px, calc(100vw - 40px));
+  width: max-content;
+}
+#cookie-banner p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(253,249,237,0.85);
+  margin: 0;
+}
+#cookie-banner a {
+  color: var(--wisteria);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+#cookie-banner button {
+  flex-shrink: 0;
+  background: var(--cream);
+  color: var(--green);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-family: var(--f-b);
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+#cookie-banner button:hover { background: var(--sage); }
+
+@media (max-width: 600px) {
+  #cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 20px;
+    bottom: 16px;
+    padding: 20px 22px;
+  }
+}
+
+/* ============================================
    Responsive – Tablet (≤900px)
    ============================================ */
 @media (max-width: 900px) {
