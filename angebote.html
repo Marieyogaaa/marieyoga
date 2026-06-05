@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angebote – marie</title>
+  <meta name="description" content="Physiotherapie 1:1, Outdoor Yoga, 1:1 Yoga und Online Yoga in München. Alle Angebote von marie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="image-slot.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-marie.png" alt="marie yoga münchen" width="48" height="48">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Start</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="angebote.html" class="active">Angebote</a>
+        <a href="retreats.html">Retreats</a>
+        <a href="events.html">Events</a>
+        <a href="buchen.html" class="btn btn-primary">Buchen</a>
+      </div>
+      <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Angebote</span>
+      <h1>Was ich anbiete.</h1>
+      <p>Von der Einzelbehandlung bis zum Retreat. Alles basiert auf echtem Körperwissen und passiert in echtem Kontakt mit dir.</p>
+    </div>
+  </section>
+
+  <!-- Angebote List -->
+  <section class="angebote-list">
+    <div class="container">
+
+      <!-- Physio 1:1 -->
+      <div class="angebote-item" id="physio">
+        <div class="angebote-content">
+          <span class="label">Physiotherapie</span>
+          <h2>Physiotherapie für Menschen, die aktiv bleiben wollen.</h2>
+          <p>Du kommst zu mir, wenn du deinen Körper wirklich verstehen willst. Nicht nur behandelt werden, sondern lernen, was ihn bewegt und was ihm schadet.</p>
+          <p>Ich arbeite als Selbstzahler-Therapeutin. Das bedeutet: mehr Zeit, mehr Tiefe, weniger Taktung. Eine Stunde gehört dir.</p>
+          <p>Typische Themen sind Schmerzen beim Sport, Bewegungseinschränkungen, Körperbewusstsein aufbauen und Training begleiten.</p>
+          <div class="price-block">
+            <span class="price-block-label">Preise</span>
+            <div class="price-row">
+              <span>30 Minuten</span>
+              <span class="amount">80 €</span>
+            </div>
+            <div class="price-row">
+              <span>60 Minuten</span>
+              <span class="amount">130 €</span>
+            </div>
+            <div class="price-row">
+              <span>Privatversicherung / Sondertarife</span>
+              <span class="amount">auf Anfrage</span>
+            </div>
+          </div>
+          <a href="buchen.html" class="btn btn-primary" style="align-self:flex-start;">Termin buchen</a>
+        </div>
+        <div class="angebote-img">
+          <image-slot id="angebote-physio" shape="rounded" radius="0" placeholder="Physiotherapie – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+        </div>
+      </div>
+
+      <!-- Yoga Outdoor -->
+      <div class="angebote-item" id="yoga-outdoor">
+        <div class="angebote-img">
+          <image-slot id="angebote-outdoor" shape="rounded" radius="0" placeholder="Outdoor Yoga Isar – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+        </div>
+        <div class="angebote-content">
+          <span class="label">Yoga Outdoor</span>
+          <h2>Yoga an der Isar. Sonntags, 9 Uhr.</h2>
+          <p>Kein Studio, kein Spiegel. Dafür Gras, Morgenlicht und Isarluft.</p>
+          <p>Der Kurs ist offen für alle. Du brauchst keine Yoga-Erfahrung, nur die Bereitschaft, dich zu bewegen und draußen zu sein.</p>
+          <p>Wir treffen uns sonntags um 9 Uhr. Den genauen Treffpunkt teile ich immer rechtzeitig über Instagram und WhatsApp. Witterungsbedingt kann ein Termin ausfallen.</p>
+          <div class="price-block">
+            <span class="price-block-label">Preise</span>
+            <div class="price-row">
+              <span>Spende</span>
+              <span class="amount">ab 10 €</span>
+            </div>
+            <div class="price-row">
+              <span>10er-Karte</span>
+              <span class="amount">180 €</span>
+            </div>
+            <div class="price-row">
+              <span>Wellpass</span>
+              <span class="amount">10,50 €</span>
+            </div>
+          </div>
+          <a href="buchen.html" class="btn btn-primary" style="align-self:flex-start;">Termin buchen</a>
+        </div>
+      </div>
+
+      <!-- 1:1 Yoga -->
+      <div class="angebote-item" id="yoga-1zu1">
+        <div class="angebote-content">
+          <span class="label">1:1 Yoga</span>
+          <h2>Yoga, das wirklich zu dir passt.</h2>
+          <p>Im Gruppenunterricht muss ich auf alle eingehen. Im 1:1 geht es nur um dich.</p>
+          <p>Wir arbeiten an dem, was du gerade brauchst: eine Praxis vertiefen, Körperbewusstsein aufbauen, Atemarbeit, Haltung, Kraftaufbau. Das Thema bestimmen wir gemeinsam.</p>
+          <p>Ich nehme 1:1-Anfragen von Menschen, die ich aus dem Physio-Kontext kenne, über Empfehlung oder aus meinen Kursen.</p>
+          <div class="price-block">
+            <span class="price-block-label">Preise</span>
+            <div class="price-row">
+              <span>60 Minuten</span>
+              <span class="amount">80–100 €</span>
+            </div>
+            <div class="price-row">
+              <span>Je nach Thema und Absprache</span>
+              <span class="amount"></span>
+            </div>
+          </div>
+          <a href="buchen.html" class="btn btn-primary" style="align-self:flex-start;">Anfragen</a>
+        </div>
+        <div class="angebote-img">
+          <image-slot id="angebote-1zu1" shape="rounded" radius="0" placeholder="1:1 Yoga – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+        </div>
+      </div>
+
+      <!-- Online Yoga -->
+      <div class="angebote-item" id="yoga-online">
+        <div class="angebote-img">
+          <image-slot id="angebote-online" shape="rounded" radius="0" placeholder="Online Yoga – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+        </div>
+        <div class="angebote-content">
+          <span class="label">Online Yoga</span>
+          <h2>Yoga, wenn du nicht nach draußen kannst.</h2>
+          <p>Dieselbe Qualität, andere Umgebung. Meine Online-Kurse laufen live oder als Hybrid. Für alle, die nicht in München wohnen oder einfach flexibel bleiben wollen.</p>
+          <div class="price-block">
+            <span class="price-block-label">Preise</span>
+            <div class="price-row">
+              <span>Spende</span>
+              <span class="amount">nach Ermessen</span>
+            </div>
+            <div class="price-row">
+              <span>10er-Karte</span>
+              <span class="amount">180 €</span>
+            </div>
+          </div>
+          <a href="buchen.html" class="btn btn-primary" style="align-self:flex-start;">Termin buchen</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Coming Soon -->
+  <section class="coming-soon">
+    <div class="container">
+      <span class="label">Demnächst</span>
+      <h2>Was gerade entsteht.</h2>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <span class="cs-badge">Coming soon</span>
+          <h3>Ölbegleitung</h3>
+          <p>Drei Monate, online, mit ätherischen Ölen als rotem Faden. Impulse, Austausch, Begleitung. Für alle, die nicht in München leben.</p>
+        </div>
+        <div class="cs-card">
+          <span class="cs-badge">Saisonal · November</span>
+          <h3>Adventskalender</h3>
+          <p>24 Tage, 24 kurze Impulse. Bewegung, Atem, Stille. Im November mehr dazu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-marie.png" alt="marie yoga münchen">
+          <p>Yoga &amp; Physiotherapie in München. Draußen, mit echtem Körperwissen.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer-Navigation">
+          <a href="index.html">Start</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="ueber-mich.html">Über mich</a>
+          <a href="events.html">Events</a>
+          <a href="angebote.html">Angebote</a>
+          <a href="buchen.html">Buchen</a>
+        </nav>
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <a href="mailto:MarieYoga@gmx.de">MarieYoga@gmx.de</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 marie – Yoga &amp; Physiotherapie München</span>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

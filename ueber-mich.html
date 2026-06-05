@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über mich – marie</title>
+  <meta name="description" content="Physiotherapeutin und Yoga-Lehrerin in München. Marie arbeitet draußen, an der Isar, mit echtem Körperwissen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="image-slot.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-marie.png" alt="marie yoga münchen" width="48" height="48">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Start</a>
+        <a href="ueber-mich.html" class="active">Über mich</a>
+        <a href="angebote.html">Angebote</a>
+        <a href="retreats.html">Retreats</a>
+        <a href="events.html">Events</a>
+        <a href="buchen.html" class="btn btn-primary">Buchen</a>
+      </div>
+      <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Über mich</span>
+      <h1>Hallo, ich bin Marie.</h1>
+      <p>Physiotherapeutin und Yoga-Lehrerin. Beides gleichzeitig, ganz bewusst.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="ueber-section">
+    <div class="container">
+      <div class="ueber-grid">
+
+        <div class="ueber-img-col">
+          <div class="ueber-img-wrap">
+            <image-slot id="ueber-portrait" shape="rounded" radius="0" placeholder="Portrait Marie – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+          </div>
+        </div>
+
+        <div class="ueber-text">
+          <p>In der Physiotherapie arbeite ich mit Selbstzahlern, die ihr Training verstehen und aktiv mitgestalten wollen. Eine Stunde, eine Person, kein Fließband. Ich nehme Patienten auf, die wirklich mitmachen wollen.</p>
+
+          <p>Im Yoga ist es dasselbe Prinzip: Du spürst, was du tust, und verstehst, warum. Mein Fokus liegt auf somatischem Yin-Yoga, Atemarbeit und Bewegungstherapie. Kein Kurs klingt bei mir nach dem anderen.</p>
+
+          <p>Meine Kurse finden draußen statt. An der Isar, in Grünanlagen, in der Natur um München. Das ist keine Stilentscheidung, sondern der Kern von dem, was ich tue.</p>
+
+          <p>Ich arbeite außerdem als Laufmama-Lauftrainerin in Kooperation mit LML und begleite schwangere und junge Mütter beim Laufen. Buchungen dafür laufen direkt über LML.</p>
+
+          <div>
+            <span class="label" style="margin-bottom: 16px;">Ausbildung &amp; Schwerpunkte</span>
+            <div class="skills-row">
+              <span class="skill-tag">Physiotherapeutin</span>
+              <span class="skill-tag">Yoga-Lehrerin</span>
+              <span class="skill-tag">Somatisches Yin-Yoga</span>
+              <span class="skill-tag">Atemarbeit</span>
+              <span class="skill-tag">Bewegungstherapie</span>
+              <span class="skill-tag">Laufmama-Lauftrainerin (LML)</span>
+            </div>
+          </div>
+
+          <a href="angebote.html" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">Zu den Angeboten</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Second image section -->
+  <section style="background: var(--white); padding: var(--pad-y) 0;">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-text">
+          <span class="label">Wie ich arbeite</span>
+          <h2>Draußen sein ist kein Bonus. Es ist der Ansatz.</h2>
+          <p>In München gibt es genug Möglichkeiten, die Natur als echten Arbeitsraum zu nutzen. Die Isar, Parks, Grünflächen. Ich halte keine Kurse draußen, weil es gut klingt – sondern weil ich selbst nie verstanden habe, warum Bewegung drinnen stattfinden soll, wenn es draußen geht.</p>
+          <p>Meine Physiotherapie-Arbeit findet nach Absprache und witterungsabhängig auch im Außenbereich statt. Im Yoga ist die Natur immer dabei.</p>
+        </div>
+        <div class="about-img-wrap">
+          <image-slot id="ueber-outdoor" shape="rounded" radius="0" placeholder="Marie draußen – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-marie.png" alt="marie yoga münchen">
+          <p>Yoga &amp; Physiotherapie in München. Draußen, mit echtem Körperwissen.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer-Navigation">
+          <a href="index.html">Start</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="ueber-mich.html">Über mich</a>
+          <a href="events.html">Events</a>
+          <a href="angebote.html">Angebote</a>
+          <a href="buchen.html">Buchen</a>
+        </nav>
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <a href="mailto:MarieYoga@gmx.de">MarieYoga@gmx.de</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 marie – Yoga &amp; Physiotherapie München</span>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

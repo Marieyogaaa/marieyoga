@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Große Bilderordner (lokal behalten, nicht auf GitHub)
+Webseitenmaterial/
+
+# Interne Datei
+.image-slots.state.json
