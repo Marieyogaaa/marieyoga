@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/Users/marie/Desktop/Claude/Projects/Marieyoga /Webseitenmaterial/Bilder Webseite/unfogyou_20250726_Marie Webotimiert MB /2U0A2886.jpg\" \"/Users/marie/Desktop/Claude/Projects/Marieyoga /uploads/hero-main.jpg\")"
+    ],
+    "additionalDirectories": [
+      "/Users/marie/Desktop/Claude/Projects/Marieyoga /Webseitenmaterial/Bilder Webseite/unfogyou_20250726_Marie Webotimiert MB "
+    ]
+  }
+}
