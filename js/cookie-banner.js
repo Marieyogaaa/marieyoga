@@ -1,8 +1,7 @@
-// Hier deine IDs eintragen:
-var GTM_ID    = 'GTM-XXXXXXX';        // z.B. GTM-AB12CD3
-var PIXEL_ID  = 'XXXXXXXXXXXXXXXXX';  // z.B. 1234567890123456
+var GTM_ID   = 'GTM-XXXXXXX';
+var PIXEL_ID = 'XXXXXXXXXXXXXXXXX';
 
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var consent = localStorage.getItem('cookie-consent');
   if (consent === 'all')       { loadTracking(); return; }
   if (consent === 'necessary') { return; }
@@ -12,29 +11,32 @@ var PIXEL_ID  = 'XXXXXXXXXXXXXXXXX';  // z.B. 1234567890123456
   banner.innerHTML =
     '<div id="cb-text">' +
       '<p class="cb-title">Cookies &amp; Datenschutz</p>' +
-      '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), um meine Website zu verbessern und Reichweite zu messen. Du entscheidest selbst.</p>' +
+      '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), ' +
+      'um meine Website zu verbessern und Reichweite zu messen. Du entscheidest selbst.</p>' +
       '<a href="datenschutz.html">Datenschutzerklärung</a>' +
     '</div>' +
     '<div id="cb-btns">' +
-      '<button id="cb-necessary">Nur notwendige</button>' +
-      '<button id="cb-accept">Alle akzeptieren</button>' +
+      '<button type="button" id="cb-necessary">Nur notwendige</button>' +
+      '<button type="button" id="cb-accept">Alle akzeptieren</button>' +
     '</div>';
+
   document.body.appendChild(banner);
 
-  document.getElementById('cb-accept').addEventListener('click', function () {
+  document.getElementById('cb-accept').onclick = function () {
     localStorage.setItem('cookie-consent', 'all');
+    banner.style.display = 'none';
     banner.remove();
     loadTracking();
-  });
+  };
 
-  document.getElementById('cb-necessary').addEventListener('click', function () {
+  document.getElementById('cb-necessary').onclick = function () {
     localStorage.setItem('cookie-consent', 'necessary');
+    banner.style.display = 'none';
     banner.remove();
-  });
-})();
+  };
+});
 
 function loadTracking() {
-  // Google Tag Manager
   if (GTM_ID && GTM_ID !== 'GTM-XXXXXXX') {
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -48,7 +50,6 @@ function loadTracking() {
     })(window,document,'script','dataLayer',GTM_ID);
   }
 
-  // Meta Pixel
   if (PIXEL_ID && PIXEL_ID !== 'XXXXXXXXXXXXXXXXX') {
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
