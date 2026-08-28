@@ -279,6 +279,12 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   background: rgba(193,174,226,0.22);
   border-left-color: var(--wisteria);
 }
+/* Dropdown hat immer hellen (cremefarbenen) Hintergrund, daher Text immer dunkel halten,
+   auch wenn der transparente Nav-Zustand (nav-dark-hero, ungescrollt) sonst helle Schrift erzwingt */
+.nav-dark-hero:not(.nav-scrolled) .nav-item.has-dropdown .nav-dropdown a {
+  color: var(--green);
+  text-shadow: none;
+}
 .nav-item > a.has-caret::after {
   content: ' ▾';
   font-size: 11px;
