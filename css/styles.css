@@ -468,6 +468,9 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   height: 100%;
   border-radius: 5px;
   overflow: hidden;
+  /* Bleed the image out to the true viewport edge, past the .container's
+     centered max-width, mirroring the offset .hero-text uses on the left. */
+  margin-right: calc(-1 * max(var(--pad-x), (100vw - var(--max-w)) / 2 + var(--pad-x)));
 }
 
 /* ============================================
@@ -1092,6 +1095,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .page-hero-img,
   .ueber-img-wrap,
   .angebote-img { height: 360px; }
+  .retreat-img-wrap { margin-right: 0; }
 
   .ueber-img-col { position: static; }
 
