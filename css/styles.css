@@ -466,7 +466,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .retreat-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
 .retreat-img-wrap {
   height: calc(100% + 2 * var(--pad-y));
-  border-radius: 5px;
+  border-radius: 0;
   overflow: hidden;
   /* Bleed the image out to the true viewport edge, past the .container's
      centered max-width, mirroring the offset .hero-text uses on the left —
