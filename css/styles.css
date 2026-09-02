@@ -785,6 +785,18 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .ev-feat-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
 .ev-feat-price { font-family: var(--f-h); font-size: 22px; white-space: nowrap; }
 
+.events-midsommar-photo {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+}
+.events-midsommar-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15,15,15,0.52) 0%, rgba(15,15,15,0.32) 55%, rgba(0,0,0,0.10) 100%);
+}
+
 /* ============================================
    Buchen page
    ============================================ */
@@ -1103,6 +1115,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .events-private-img { height: 360px; }
   .retreat-img-wrap,
   .events-private-img { margin: 0; }
+  .events-midsommar-photo { height: 320px; }
 
   .ueber-img-col { position: static; }
 
