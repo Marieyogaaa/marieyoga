@@ -1091,15 +1091,18 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .retreat-content .two-col,
   .page-hero-green-inner,
   .ueber-grid,
-  .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+  .booking-grid,
+  .events-private-grid { grid-template-columns: 1fr; gap: 40px; }
   .angebote-item { grid-template-columns: 1fr; gap: 40px; padding: 48px 36px; }
 
   .about-img-wrap,
   .retreat-img-wrap,
   .page-hero-img,
   .ueber-img-wrap,
-  .angebote-img { height: 360px; }
-  .retreat-img-wrap { margin: 0; }
+  .angebote-img,
+  .events-private-img { height: 360px; }
+  .retreat-img-wrap,
+  .events-private-img { margin: 0; }
 
   .ueber-img-col { position: static; }
 
