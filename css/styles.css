@@ -465,12 +465,16 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .retreat-details li::before { content: '—'; color: var(--wisteria); flex-shrink: 0; margin-top: 1px; }
 .retreat-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
 .retreat-img-wrap {
-  height: 100%;
+  height: calc(100% + 2 * var(--pad-y));
   border-radius: 5px;
   overflow: hidden;
   /* Bleed the image out to the true viewport edge, past the .container's
-     centered max-width, mirroring the offset .hero-text uses on the left. */
+     centered max-width, mirroring the offset .hero-text uses on the left —
+     and up/down past the section's own vertical padding, so it touches the
+     top and bottom of the green section too. */
   margin-right: calc(-1 * max(var(--pad-x), (100vw - var(--max-w)) / 2 + var(--pad-x)));
+  margin-top: calc(-1 * var(--pad-y));
+  margin-bottom: calc(-1 * var(--pad-y));
 }
 
 /* ============================================
@@ -1095,7 +1099,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .page-hero-img,
   .ueber-img-wrap,
   .angebote-img { height: 360px; }
-  .retreat-img-wrap { margin-right: 0; }
+  .retreat-img-wrap { margin: 0; }
 
   .ueber-img-col { position: static; }
 
