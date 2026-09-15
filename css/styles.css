@@ -333,12 +333,13 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   margin-left: max(var(--pad-x), calc((100vw - var(--max-w)) / 2 + var(--pad-x)));
 }
 .hero-text h1 { color: var(--cream); max-width: 540px; }
-.hero-text .label { color: var(--wisteria); }
+.hero-text .label { color: var(--cream); }
 .hero-text .sub {
   font-size: 18px;
   color: rgba(253,249,237,0.85);
   max-width: 460px;
 }
+.hero-text .hero-tags { color: var(--wisteria); }
 .hero-ctas {
   display: flex;
   gap: 14px;
