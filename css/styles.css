@@ -501,13 +501,13 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .ev-date {
   font-family: var(--f-h);
   font-size: 15px;
-  color: var(--sage);
+  color: var(--green);
   line-height: 1.4;
   padding-top: 4px;
 }
 .ev-info h3 { font-size: 22px; margin-bottom: 6px; }
 .ev-info p { font-size: 15px; color: var(--text-muted); max-width: 520px; }
-.ev-price { font-size: 14px; color: var(--sage); padding-top: 5px; text-align: right; white-space: nowrap; }
+.ev-price { font-size: 14px; color: var(--green); padding-top: 5px; text-align: right; white-space: nowrap; }
 .events-cta { margin-top: 44px; }
 
 /* ============================================
