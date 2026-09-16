@@ -389,6 +389,18 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   border-radius: 0;
   overflow: hidden;
 }
+/* Image-on-the-right variant: bleeds to fill the section's full height
+   and the true viewport edge on the right (see ueber-mich.html's second
+   image section). Only safe when the image is the LAST grid child. */
+.about-inner--fill-right {
+  align-items: stretch;
+}
+.about-inner--fill-right .about-img-wrap {
+  height: calc(100% + 2 * var(--pad-y));
+  margin-top: calc(-1 * var(--pad-y));
+  margin-bottom: calc(-1 * var(--pad-y));
+  margin-right: calc(-1 * max(var(--pad-x), (100vw - var(--max-w)) / 2 + var(--pad-x)));
+}
 .about-text {
   display: flex;
   flex-direction: column;
@@ -1115,7 +1127,8 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .angebote-img,
   .events-private-img { height: 360px; }
   .retreat-img-wrap,
-  .events-private-img { margin: 0; }
+  .events-private-img,
+  .about-inner--fill-right .about-img-wrap { margin: 0; }
   .events-midsommar-photo { height: 320px; }
 
   .ueber-img-col { position: static; }
