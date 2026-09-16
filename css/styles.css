@@ -461,7 +461,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   border-top: 1px solid rgba(52,79,56,0.08);
   margin-top: 4px;
 }
-.price-tag { font-size: 14px; color: var(--sage); }
+.price-tag { font-family: var(--f-h); font-size: 16px; font-weight: 500; color: var(--green); }
 
 /* ============================================
    Retreats Teaser
