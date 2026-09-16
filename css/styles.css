@@ -386,7 +386,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .about-img-wrap {
   height: 560px;
-  border-radius: 5px;
+  border-radius: 0;
   overflow: hidden;
 }
 .about-text {
@@ -650,7 +650,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   position: sticky;
   top: calc(var(--nav-h) + 24px);
 }
-.ueber-img-wrap { height: 580px; border-radius: 5px; overflow: hidden; }
+.ueber-img-wrap { height: 580px; border-radius: 0; overflow: hidden; }
 .ueber-text { display: flex; flex-direction: column; gap: 22px; }
 .ueber-text p { color: var(--text-muted); }
 .skills-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
@@ -680,8 +680,8 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 #yoga-1zu1 { background: rgba(52,79,56,0.07); }
 #yoga-outdoor-donnerstag { background: rgba(52,79,56,0.09); }
 #yoga-online  { background: rgba(193,174,226,0.48); }
-.angebote-img { height: 460px; border-radius: 5px; overflow: hidden; }
-.angebote-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 5px; }
+.angebote-img { height: 460px; border-radius: 0; overflow: hidden; }
+.angebote-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; }
 
 /* Overlapping two-image layout for Physio */
 .physio-stack { position: relative; overflow: visible; background: transparent; }
@@ -690,7 +690,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   top: 0; left: 0;
   width: 78%;
   height: 88%;
-  border-radius: 5px;
+  border-radius: 0;
   overflow: hidden;
 }
 .physio-stack .ps-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -699,7 +699,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   bottom: 0; right: 0;
   width: 56%;
   height: 60%;
-  border-radius: 5px;
+  border-radius: 0;
   overflow: hidden;
   border: 4px solid var(--cream);
   box-shadow: -6px -6px 28px rgba(52,79,56,0.14);
@@ -1085,7 +1085,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .ig-tile {
   aspect-ratio: 1;
-  border-radius: var(--r);
+  border-radius: 0;
   display: block;
   transition: opacity 0.2s, transform 0.2s;
   overflow: hidden;
