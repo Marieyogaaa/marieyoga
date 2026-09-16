@@ -417,7 +417,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   gap: 1px;
   background: rgba(52,79,56,0.09);
   border: 1px solid rgba(52,79,56,0.09);
-  border-radius: var(--r);
+  border-radius: 0;
   overflow: hidden;
 }
 .offer-card {
@@ -665,14 +665,14 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 /* ============================================
    Angebote page
    ============================================ */
-.angebote-list { padding: var(--pad-y) 0; display: flex; flex-direction: column; gap: 32px; }
+.angebote-list { padding: var(--pad-y) 0; display: flex; flex-direction: column; gap: 0; }
 .angebote-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
   padding: 60px;
-  border-radius: var(--r-lg);
+  border-radius: 0;
 }
 .angebote-item:nth-child(even) .angebote-img { order: -1; }
 #physio    { background: rgba(186,200,189,0.35); }
