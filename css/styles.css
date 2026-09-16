@@ -401,6 +401,16 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   margin-bottom: calc(-1 * var(--pad-y));
   margin-right: calc(-1 * max(var(--pad-x), (100vw - var(--max-w)) / 2 + var(--pad-x)));
 }
+/* Mirrored variant: image is the FIRST grid child and bleeds to the left edge. */
+.about-inner--fill-left {
+  align-items: stretch;
+}
+.about-inner--fill-left .about-img-wrap {
+  height: calc(100% + 2 * var(--pad-y));
+  margin-top: calc(-1 * var(--pad-y));
+  margin-bottom: calc(-1 * var(--pad-y));
+  margin-left: calc(-1 * max(var(--pad-x), (100vw - var(--max-w)) / 2 + var(--pad-x)));
+}
 .about-text {
   display: flex;
   flex-direction: column;
@@ -1128,7 +1138,8 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .events-private-img { height: 360px; }
   .retreat-img-wrap,
   .events-private-img,
-  .about-inner--fill-right .about-img-wrap { margin: 0; }
+  .about-inner--fill-right .about-img-wrap,
+  .about-inner--fill-left .about-img-wrap { margin: 0; }
   .events-midsommar-photo { height: 320px; }
 
   .ueber-img-col { position: static; }
