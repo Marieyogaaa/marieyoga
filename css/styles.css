@@ -1220,3 +1220,37 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .footer-legal { flex-direction: column; align-items: center; gap: 10px; }
   .footer-nav { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================
+   Über mich: Herkunft, Berufsweg, Qualifikationen
+   ============================================ */
+.origin-lead { font-family: var(--f-h); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; color: var(--green) !important; max-width: none; }
+.origin .skills-row { margin-top: 18px; }
+.cv-section { padding: var(--pad-y) 0; background: var(--white); }
+.cv-section h2, .qual-section h2 { margin-bottom: 40px; }
+.cv-list { list-style: none; }
+.cv-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(52,79,56,0.12);
+}
+.cv-item:last-child { border-bottom: 1px solid rgba(52,79,56,0.12); }
+.cv-date { font-family: var(--f-h); font-size: 16px; color: var(--green); padding-top: 4px; }
+.cv-info h3 { font-size: 22px; margin-bottom: 4px; }
+.cv-info p { color: var(--text-muted); font-size: 16px; max-width: 620px; }
+.qual-section { padding: var(--pad-y) 0; }
+.qual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.qual-card { background: rgba(186,200,189,0.28); padding: 36px 32px; }
+.qual-card:nth-child(2) { background: rgba(193,174,226,0.28); }
+.qual-card h3 { font-size: 24px; margin-bottom: 24px; }
+.qual-list { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+.qual-list li { font-size: 15px; color: var(--text-muted); line-height: 1.5; }
+.qual-list strong { display: block; font-weight: 500; font-size: 16px; color: var(--green); margin-bottom: 2px; }
+.qual-year { display: block; font-family: var(--f-h); font-size: 14px; color: var(--green); margin-bottom: 4px; opacity: 0.8; }
+@media (max-width: 900px) {
+  .cv-item { grid-template-columns: 1fr; gap: 4px; }
+  .qual-grid { grid-template-columns: 1fr; }
+}
