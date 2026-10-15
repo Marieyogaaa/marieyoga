@@ -21,7 +21,7 @@ function showCookieBanner() {
   banner.innerHTML =
     '<div id="cb-text">' +
       '<p class="cb-title">Datenschutz</p>' +
-      '<p>Ich nutze keine Cookies und kein Tracking. Auf der Startseite zeige ich meinen ' +
+      '<p>Ich nutze keine Cookies und kein Tracking. Auf einigen Seiten zeige ich meinen ' +
       'Instagram-Feed, dafür werden Bilder über den Dienst Behold geladen. Du entscheidest selbst.</p>' +
       '<a href="datenschutz.html">Datenschutzerklärung</a>' +
     '</div>' +
