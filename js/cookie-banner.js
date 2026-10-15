@@ -2,17 +2,27 @@ var GTM_ID   = 'GTM-XXXXXXX';
 var PIXEL_ID = 'XXXXXXXXXXXXXXXXX';
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Footer-Link "Cookies": Banner jederzeit erneut öffnen
+  document.querySelectorAll('.cookie-settings-link').forEach(function (link) {
+    link.onclick = showCookieBanner;
+  });
+
   var consent = localStorage.getItem('cookie-consent');
   if (consent === 'all')       { loadTracking(); return; }
   if (consent === 'necessary') { return; }
+  showCookieBanner();
+});
+
+function showCookieBanner() {
+  if (document.getElementById('cookie-banner')) return;
 
   var banner = document.createElement('div');
   banner.id = 'cookie-banner';
   banner.innerHTML =
     '<div id="cb-text">' +
-      '<p class="cb-title">Cookies &amp; Datenschutz</p>' +
-      '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), ' +
-      'um meine Website zu verbessern und Reichweite zu messen. Du entscheidest selbst.</p>' +
+      '<p class="cb-title">Datenschutz</p>' +
+      '<p>Ich nutze keine Cookies und kein Tracking. Auf der Startseite zeige ich meinen ' +
+      'Instagram-Feed, dafür werden Bilder über den Dienst Behold geladen. Du entscheidest selbst.</p>' +
       '<a href="datenschutz.html">Datenschutzerklärung</a>' +
     '</div>' +
     '<div id="cb-btns">' +
@@ -24,17 +34,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('cb-accept').onclick = function () {
     localStorage.setItem('cookie-consent', 'all');
-    banner.style.display = 'none';
     banner.remove();
     loadTracking();
+    document.dispatchEvent(new Event('cookie-consent-all'));
   };
 
   document.getElementById('cb-necessary').onclick = function () {
+    var hadConsent = localStorage.getItem('cookie-consent') === 'all';
     localStorage.setItem('cookie-consent', 'necessary');
-    banner.style.display = 'none';
     banner.remove();
+    // Bereits geladene externe Inhalte (Instagram-Feed) wieder entfernen
+    if (hadConsent) location.reload();
   };
-});
+}
 
 function loadTracking() {
   if (GTM_ID && GTM_ID !== 'GTM-XXXXXXX') {

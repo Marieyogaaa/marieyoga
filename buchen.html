@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <nav class="nav nav-dark-hero">
+  <nav class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
         <img src="assets/logo-marie-transparent.png" alt="marie yoga münchen" width="42" height="42">
@@ -22,24 +22,44 @@
         <a href="ueber-mich.html">Über mich</a>
         <div class="nav-item has-dropdown">
           <a href="angebote.html" class="has-caret">Angebote</a>
-          <div class="nav-dropdown">
-            <a href="angebote.html#physio">Physiotherapie</a>
-            <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
-            <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
-            <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
-            <a href="angebote.html#yoga-online">Online Yoga</a>
+          <div class="nav-dropdown nav-dropdown--years">
+            <div class="nav-sub">
+              <a href="angebote.html#physio" class="nav-sub-trigger">Physiotherapie</a>
+              <div class="nav-subdropdown">
+                <a href="angebote.html#physio">Physiotherapie 1:1</a>
+                <a href="buchen.html#physio">Termin anfragen</a>
+              </div>
+            </div>
+            <div class="nav-sub">
+              <a href="angebote.html#yoga" class="nav-sub-trigger">Yoga</a>
+              <div class="nav-subdropdown">
+                <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
+                <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
+                <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+                <a href="angebote.html#yoga-online">Online Yoga</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-item has-dropdown">
           <a href="retreats.html" class="has-caret">Retreats</a>
-          <div class="nav-dropdown">
-            <a href="retreats.html">Wander &amp; Wonder 2026</a>
-            <a href="retreats.html#juli">Juli · InBalance</a>
-            <a href="retreats.html#august">August · Physio &amp; Yoga</a>
-            <a href="retreats.html#september">September · Somatic</a>
-            <a href="retreats.html#somatics-2027">Januar 2027 · Somatics Weekend</a>
-            <a href="retreats.html#schnee-2027">Februar 2027 · Schnee &amp; Yoga</a>
-            <a href="retreats.html#wander-2027">Wander &amp; Wonder 2027</a>
+          <div class="nav-dropdown nav-dropdown--years">
+            <div class="nav-sub">
+              <a href="retreats.html#2026" class="nav-sub-trigger">2026</a>
+              <div class="nav-subdropdown">
+                <a href="retreats.html#juli">Juli · InBalance</a>
+                <a href="retreats.html#august">August · Physio &amp; Yoga</a>
+                <a href="retreats.html#september">September · Somatic</a>
+              </div>
+            </div>
+            <div class="nav-sub">
+              <a href="retreats.html#2027" class="nav-sub-trigger">2027</a>
+              <div class="nav-subdropdown">
+                <a href="retreats.html#somatics-2027">Januar · Somatics Weekend</a>
+                <a href="retreats.html#schnee-2027">Februar · Schnee &amp; Yoga</a>
+                <a href="retreats.html#wander-2027">Juli · Wander &amp; Wonder</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-item has-dropdown">
@@ -58,127 +78,251 @@
     </div>
   </nav>
 
-  <section class="hero" style="background-image: url('uploads/physio-portrait.jpg')">
-    <div class="hero-text">
-      <span class="label">Buchen</span>
-      <h1>Einen Termin buchen.</h1>
-      <p class="sub" style="margin-top:14px;">Wähle das Angebot, das dich interessiert, und such dir einen freien Termin aus. Bei Fragen schreib mir kurz.</p>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Termin buchen</h1>
+      <p>Wähle dein Angebot und buche direkt hier. Bei Fragen schreib mir kurz.</p>
     </div>
   </section>
 
   <section class="booking-section">
     <div class="container">
-      <div class="booking-grid">
-
-        <!-- Cal.com Embed Placeholder -->
-        <div class="booking-embed">
-          <img src="assets/logo-icon-lila-transparent.png" alt="">
-          <h3>Online-Buchung</h3>
-          <p>Hier wird das Buchungssystem (Cal.com) eingebunden. Du kannst direkt einen freien Termin auswählen und buchen.</p>
-          <p style="font-size:14px;">Noch nicht bereit? Schreib mir an<br><a href="mailto:info@marieyoga.de">info@marieyoga.de</a></p>
-          <a href="mailto:info@marieyoga.de" class="btn btn-primary" style="margin-top:8px;">Per Mail anfragen</a>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="booking-aside">
-
-          <div class="booking-info">
-            <h3>Physiotherapie 1:1</h3>
-            <p style="color:var(--text-muted);font-size:15px;margin-top:6px;">Selbstzahler. 30 oder 60 Minuten.</p>
-            <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
-              <div style="display:flex;justify-content:space-between;font-size:15px;">
-                <span>30 Min</span><strong>80 €</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:15px;padding-top:6px;border-top:1px solid rgba(52,79,56,0.07);">
-                <span>60 Min</span><strong>130 €</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="booking-info">
-            <h3>Yoga Outdoor</h3>
-            <p style="color:var(--text-muted);font-size:15px;margin-top:6px;">Sonntags, 9 Uhr, an der Isar.</p>
-            <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
-              <div style="display:flex;justify-content:space-between;font-size:15px;">
-                <span>Spende</span><strong>ab 10 €</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:15px;padding-top:6px;border-top:1px solid rgba(52,79,56,0.07);">
-                <span>10er-Karte</span><strong>180 €</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:15px;padding-top:6px;border-top:1px solid rgba(52,79,56,0.07);">
-                <span>Wellpass</span><strong>10,50 €</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="booking-info">
-            <h3>1:1 Yoga</h3>
-            <p style="color:var(--text-muted);font-size:15px;margin-top:6px;">Individuell, 60 Minuten.</p>
-            <div style="margin-top:14px;font-size:15px;display:flex;justify-content:space-between;">
-              <span>60 Min</span><strong>80–100 €</strong>
-            </div>
-          </div>
-
-          <div class="booking-info">
-            <h3>Yoga fürs Nervensystem</h3>
-            <p style="color:var(--text-muted);font-size:15px;margin-top:6px;">Online via Zoom, donnerstags 20:00–21:00 Uhr.</p>
-            <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
-              <div style="display:flex;justify-content:space-between;font-size:15px;">
-                <span>Drop-in</span><strong>20 €</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:15px;padding-top:6px;border-top:1px solid rgba(52,79,56,0.07);">
-                <span>10er-Karte</span><strong>nach Absprache</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="booking-info" style="background:var(--green);border-color:var(--green);">
-            <h3 style="color:var(--cream);">Retreat Wander &amp; Wonder</h3>
-            <p style="color:rgba(253,249,237,0.7);font-size:15px;margin-top:6px;">Fr–So, drei Termine in 2026.</p>
-            <div style="margin-top:14px;font-size:15px;display:flex;justify-content:space-between;">
-              <span style="color:rgba(253,249,237,0.7);">Pro Person</span>
-              <strong style="color:var(--cream);">370–399 €</strong>
-            </div>
-            <a href="retreats.html" class="link-arrow" style="margin-top:16px;color:var(--wisteria);border-color:rgba(193,174,226,0.4);display:inline-flex;">Mehr erfahren</a>
-          </div>
-
-        </div>
+      <div class="angebote-filter" role="group" aria-label="Angebote filtern">
+        <button type="button" class="filter-btn is-active" data-filter="alle" aria-pressed="true">Alle Angebote</button>
+        <button type="button" class="filter-btn" data-filter="physio" aria-pressed="false">Physiotherapie</button>
+        <button type="button" class="filter-btn" data-filter="yoga" aria-pressed="false">Yoga</button>
+        <button type="button" class="filter-btn" data-filter="events" aria-pressed="false">Events</button>
+        <button type="button" class="filter-btn" data-filter="retreats" aria-pressed="false">Retreats</button>
       </div>
+
+      <table class="booking-table">
+        <thead>
+          <tr>
+            <th scope="col">Angebot</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Preis</th>
+            <th scope="col"><span class="visually-hidden">Buchen</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- data-types: einzel = Einzelstunde, wellpass = Wellpass
+               Termine im Popup: wöchentliche Kurse über data-weekday (0 = Sonntag … 6 = Samstag),
+               data-start und data-end; feste Termine über data-dates und data-iso (Datum JJJJ-MM-TT, mehrere jeweils mit | trennen) -->
+          <tr data-category="physio" data-offer="Physiotherapie 1:1" data-detail="30 Minuten" data-price="80 €" data-types="einzel">
+            <td data-label="Angebot"><strong>Physiotherapie 1:1</strong><span>Selbstzahler, 30 Minuten</span></td>
+            <td data-label="Datum">Nach Absprache</td>
+            <td data-label="Preis">80 €</td>
+            <td><a href="mailto:info@marieyogaaa.de?subject=Terminanfrage%20Physiotherapie%201%3A1%20%2830%20Minuten%29&amp;body=Hallo%20Marie%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Termin%20f%C3%BCr%20Physiotherapie%20%2830%20Minuten%29%20ausmachen.%0A%0AM%C3%B6gliche%20Tage%20und%20Uhrzeiten%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-primary">Termin anfragen</a></td>
+          </tr>
+          <tr data-category="physio" data-offer="Physiotherapie 1:1" data-detail="60 Minuten" data-price="150 €" data-types="einzel">
+            <td data-label="Angebot"><strong>Physiotherapie 1:1</strong><span>Selbstzahler, 60 Minuten</span></td>
+            <td data-label="Datum">Nach Absprache</td>
+            <td data-label="Preis">150 €</td>
+            <td><a href="mailto:info@marieyogaaa.de?subject=Terminanfrage%20Physiotherapie%201%3A1%20%2860%20Minuten%29&amp;body=Hallo%20Marie%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Termin%20f%C3%BCr%20Physiotherapie%20%2860%20Minuten%29%20ausmachen.%0A%0AM%C3%B6gliche%20Tage%20und%20Uhrzeiten%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-primary">Termin anfragen</a></td>
+          </tr>
+          <tr data-category="yoga" data-offer="Outdoor Yoga · Isar" data-weekday="0" data-start="09:00" data-end="10:00" data-detail="Sonntags, 9:00 Uhr" data-price="15–20 €" data-types="einzel,wellpass">
+            <td data-label="Angebot"><strong>Outdoor Yoga · Isar</strong><span>Auch mit Wellpass buchbar</span><span class="booking-note">Saisonangebot: findet nur in der Outdoor-Saison und bei passendem Wetter statt. Den Treffpunkt bekommst du am Vortag per E-Mail.</span></td>
+            <td data-label="Datum">Sonntags, 9:00 Uhr</td>
+            <td data-label="Preis">15–20 €</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr data-category="yoga" data-offer="Outdoor Yoga · Englischer Garten" data-weekday="4" data-start="18:30" data-end="19:30" data-detail="Donnerstags, 18:30 Uhr" data-price="15–20 €" data-types="einzel,wellpass">
+            <td data-label="Angebot"><strong>Outdoor Yoga · Englischer Garten</strong><span>Auch mit Wellpass buchbar</span><span class="booking-note">Saisonangebot: findet nur in der Outdoor-Saison und bei passendem Wetter statt. Den Treffpunkt bekommst du am Vortag per E-Mail.</span></td>
+            <td data-label="Datum">Donnerstags, 18:30 Uhr</td>
+            <td data-label="Preis">15–20 €</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr data-category="yoga" data-offer="1:1 Yoga" data-detail="60 Minuten" data-price="80–100 €" data-types="einzel">
+            <td data-label="Angebot"><strong>1:1 Yoga</strong><span>60 Minuten, je nach Thema</span></td>
+            <td data-label="Datum">Nach Absprache</td>
+            <td data-label="Preis">80–100 €</td>
+            <td><a href="mailto:info@marieyogaaa.de?subject=Terminanfrage%201%3A1%20Yoga&amp;body=Hallo%20Marie%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Termin%20f%C3%BCr%201%3A1%20Yoga%20ausmachen.%0A%0AM%C3%B6gliche%20Tage%20und%20Uhrzeiten%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-primary">Termin anfragen</a></td>
+          </tr>
+          <tr data-category="yoga" data-offer="Yoga fürs Nervensystem (online)" data-weekday="4" data-start="20:00" data-end="21:00" data-detail="Donnerstags, 20:00–21:00 Uhr via Zoom" data-price="20 €" data-types="einzel">
+            <td data-label="Angebot"><strong>Yoga fürs Nervensystem</strong><span>Online via Zoom</span></td>
+            <td data-label="Datum">Donnerstags, 20:00–21:00 Uhr</td>
+            <td data-label="Preis">20 €</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="von-innen-warm" data-category="events" data-offer="VON INNEN WARM" data-iso="2026-11-13T18:30" data-dates="Freitag, 13.11. um 18:30–21:00 Uhr" data-detail="Fr, 13.11.2026, 18:30–21:00 Uhr" data-price="55 €" data-types="einzel">
+            <td data-label="Angebot"><strong>VON INNEN WARM</strong><span>Event mit Veronika Embloom</span></td>
+            <td data-label="Datum">Fr, 13.11.2026<br>18:30–21:00 Uhr</td>
+            <td data-label="Preis">55 €</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="adventskalender" data-category="events" data-offer="Adventskalender" data-iso="2026-12-01" data-dates="1.–24.12.2026" data-detail="1.–24.12.2026" data-price="24 €" data-types="einzel">
+            <td data-label="Angebot"><strong>Adventskalender</strong><span>Per Telegram &amp; WhatsApp</span></td>
+            <td data-label="Datum">1.–24.12.2026</td>
+            <td data-label="Preis">24 €</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="somatics-2027" data-category="retreats" data-offer="Somatics Weekend Retreat" data-iso="2027-01-15" data-dates="Freitag, 15.1. bis Sonntag, 17.1.2027" data-detail="15.–17.1.2027" data-price="Preis folgt" data-types="einzel">
+            <td data-label="Angebot"><strong>Somatics Weekend Retreat</strong><span>Wochenend-Retreat</span></td>
+            <td data-label="Datum">15.–17.1.2027</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="schnee-2027" data-category="retreats" data-offer="Schnee in den Bergen &amp; Yoga" data-mode="interest" data-detail="evtl. 19.–21.2.2027">
+            <td data-label="Angebot"><strong>Schnee in den Bergen &amp; Yoga</strong><span>Retreat mit Annika Belz · Termin noch nicht endgültig</span></td>
+            <td data-label="Datum">evtl. 19.–21.2.2027</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Interesse melden</button></td>
+          </tr>
+          <tr id="mittenwald-2027" data-category="retreats" data-offer="Retreat in Mittenwald" data-iso="2027-06-05" data-dates="Samstag, 5.6. bis Sonntag, 6.6.2027" data-detail="5.–6.6.2027" data-price="Preis folgt" data-types="einzel">
+            <td data-label="Angebot"><strong>Retreat in Mittenwald</strong><span>Wochenende im Karls in Mittenwald</span></td>
+            <td data-label="Datum">5.–6.6.2027</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="midsommar" data-category="events" data-offer="Midsommar" data-iso="2027-06-25" data-dates="Freitag, 25.6.2027, abends" data-detail="Fr, 25.6.2027" data-price="Preis folgt" data-types="einzel">
+            <td data-label="Angebot"><strong>Midsommar</strong><span>Yoga-Abend zur Sommersonnenwende im Englischen Garten</span></td>
+            <td data-label="Datum">Fr, 25.6.2027</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
+          </tr>
+          <tr id="wander-2027" data-category="retreats" data-offer="Wander &amp; Wonder 2027" data-mode="interest" data-detail="evtl. 23.–25.7.2027">
+            <td data-label="Angebot"><strong>Wander &amp; Wonder 2027</strong><span>Berg-Yoga-Retreat · Termin noch nicht endgültig</span></td>
+            <td data-label="Datum">evtl. 23.–25.7.2027</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Interesse melden</button></td>
+          </tr>
+          <tr id="brunch" data-category="events" data-offer="Yoga &amp; Brunch oder Yoga &amp; Create" data-mode="interest" data-detail="Herbst 2026, Termin folgt">
+            <td data-label="Angebot"><strong>Yoga &amp; Brunch oder Yoga &amp; Create</strong><span>Special-Event, Format noch offen</span></td>
+            <td data-label="Datum">Herbst 2026<br>Termin folgt</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Interesse melden</button></td>
+          </tr>
+          <tr id="oelbegleitung" data-category="events" data-offer="Ölbegleitung" data-mode="interest" data-detail="Demnächst">
+            <td data-label="Angebot"><strong>Ölbegleitung</strong><span>3 Monate online mit ätherischen Ölen</span></td>
+            <td data-label="Datum">Demnächst</td>
+            <td data-label="Preis">Preis folgt</td>
+            <td><button type="button" class="btn btn-primary booking-open">Interesse melden</button></td>
+          </tr>
+          <tr id="private-events" data-category="events" data-offer="Private Events">
+            <td data-label="Angebot"><strong>Private Events</strong><span>JGAs, Geburtstage, Mama Blessings, Firmenfeiern</span></td>
+            <td data-label="Datum">Nach Absprache</td>
+            <td data-label="Preis">Auf Anfrage</td>
+            <td><a href="mailto:info@marieyogaaa.de?subject=Anfrage%3A%20Private%20Event&amp;body=Hallo%20Marie%2C%0A%0Aich%20m%C3%B6chte%20gern%20ein%20privates%20Yoga-Event%20anfragen.%0A%0AAnlass%3A%0ADatum%3A%0AAnzahl%20Personen%3A%0AOrt%20%28falls%20schon%20klar%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-primary">Anfrage stellen</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
+
+  <!-- Buchungs-Popup -->
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-dialog-title">
+    <button type="button" class="booking-close" aria-label="Schließen">&times;</button>
+
+    <form class="booking-form" id="booking-form" novalidate>
+      <h3 id="booking-dialog-title"></h3>
+      <p class="booking-summary"><span id="booking-detail"></span><strong id="booking-price"></strong></p>
+
+      <!-- Spamschutz: für Menschen unsichtbar, Bots füllen es aus -->
+      <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <label class="booking-field">
+        <span>Name</span>
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label class="booking-field">
+        <span>E-Mail-Adresse</span>
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+
+      <label class="booking-field interest-only">
+        <span>Nachricht (optional)</span>
+        <textarea name="message" rows="3"></textarea>
+      </label>
+
+      <label class="booking-field booking-only" id="booking-date-field">
+        <span>Termin</span>
+        <select name="date" id="booking-date" required></select>
+      </label>
+      <div class="booking-field booking-only" id="booking-date-fixed">
+        <span>Termin</span>
+        <strong id="booking-date-text"></strong>
+      </div>
+
+      <fieldset class="booking-types booking-only" id="booking-types">
+        <legend>Wie möchtest du buchen?</legend>
+        <label data-type="einzel"><input type="radio" name="type" value="einzel"> Einzelstunde</label>
+        <label data-type="wellpass"><input type="radio" name="type" value="wellpass"> Wellpass</label>
+      </fieldset>
+
+      <!-- Platzhalter: hier wird später die Online-Zahlung (z. B. Stripe oder PayPal) eingebunden -->
+      <div class="booking-payment booking-only" id="booking-payment">
+        <strong>Bezahlung</strong>
+        <p>Hier kannst du bald direkt online bezahlen.</p>
+      </div>
+
+      <label class="booking-agb booking-only">
+        <input type="checkbox" name="agb" required>
+        <span>Ich habe die <a href="agb.html" target="_blank" rel="noopener">AGB</a> gelesen und stimme ihnen zu. Hinweise zum Umgang mit meinen Daten finde ich in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+      </label>
+
+      <p class="booking-error" id="booking-error" role="alert" hidden></p>
+
+      <button type="submit" class="btn btn-primary booking-submit" id="booking-submit">Zahlungspflichtig buchen</button>
+    </form>
+
+    <div class="booking-success" id="booking-success" hidden>
+      <h3 id="booking-success-title">Deine Buchung ist angekommen</h3>
+      <p id="booking-success-text">Du bekommst gleich eine Bestätigung per E-Mail. Treffpunkt bzw. Link schicke ich dir spätestens am Vortag.</p>
+      <button type="button" class="btn btn-outline booking-close-btn">Schließen</button>
+    </div>
+  </dialog>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-marie-transparent.png" alt="marie yoga münchen">
-          <p>Yoga &amp; Physiotherapie in München.</p>
+          <a href="index.html" class="footer-logo"><img src="assets/logo-marie-transparent.png" alt="marie yoga münchen"></a>
+          <ul class="footer-contact">
+            <li><a href="mailto:info@marieyogaaa.de"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@marieyogaaa.de</a></li>
+            <li><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>München</span></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          </div>
+          <a href="buchen.html" class="btn btn-primary footer-cta">Termin buchen</a>
         </div>
-        <nav class="footer-nav" aria-label="Footer-Navigation">
+
+        <nav class="footer-col" aria-label="Seiten">
           <a href="index.html">Home</a>
-          <a href="retreats.html">Retreats</a>
           <a href="ueber-mich.html">Über mich</a>
-          <a href="events.html">Events</a>
           <a href="angebote.html">Angebote</a>
           <a href="buchen.html">Buchen</a>
         </nav>
-        <div class="footer-contact">
-          <h4>Kontakt</h4>
-          <a href="mailto:info@marieyoga.de">info@marieyoga.de</a>
-          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Marieyoga – Yoga &amp; Physiotherapie München</span>
-        <div class="footer-legal">
+        <nav class="footer-col" aria-label="Angebote">
+          <a href="angebote.html#physio">Physiotherapie</a>
+          <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
+          <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
+          <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+          <a href="angebote.html#yoga-online">Online Yoga</a>
+        </nav>
+        <nav class="footer-col" aria-label="Retreats und Events">
+          <a href="retreats.html#2027">Retreats 2027</a>
+          <a href="retreats.html#2026">Retreats 2026</a>
+          <a href="events.html">Alle Events</a>
+          <a href="events.html#midsommar">Midsommar</a>
+        </nav>
+        <nav class="footer-col" aria-label="Rechtliches">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
-        </div>
+          <a href="agb.html">AGB</a>
+          <button type="button" class="cookie-settings-link">Cookie-Einstellungen</button>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Marieyoga – Yoga &amp; Physiotherapie in München</span>
+        <a href="#" class="footer-top">Nach oben ↑</a>
       </div>
     </div>
   </footer>
 
   <script src="js/nav.js"></script>
   <script src="js/cookie-banner.js"></script>
+  <script src="js/angebote-filter.js"></script>
+  <script src="js/booking.js"></script>
 </body>
 </html>

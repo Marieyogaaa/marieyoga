@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über mich – marie</title>
-  <meta name="description" content="Physiotherapeutin und Yoga-Lehrerin in München. Marie arbeitet draußen, an der Isar, mit echtem Körperwissen.">
+  <meta name="description" content="Physiotherapeutin und Yoga-Lehrerin in München. Marie arbeitet draußen an der Isar, mit fundiertem Wissen über den Körper.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Cormorant+Garamond:wght@400&family=Cormorant+Garamond:wght@400&family=Cormorant+Garamond:wght@400&family=Gilda+Display&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -23,24 +23,44 @@
         <a href="ueber-mich.html">Über mich</a>
         <div class="nav-item has-dropdown">
           <a href="angebote.html" class="has-caret">Angebote</a>
-          <div class="nav-dropdown">
-            <a href="angebote.html#physio">Physiotherapie</a>
-            <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
-            <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
-            <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
-            <a href="angebote.html#yoga-online">Online Yoga</a>
+          <div class="nav-dropdown nav-dropdown--years">
+            <div class="nav-sub">
+              <a href="angebote.html#physio" class="nav-sub-trigger">Physiotherapie</a>
+              <div class="nav-subdropdown">
+                <a href="angebote.html#physio">Physiotherapie 1:1</a>
+                <a href="buchen.html#physio">Termin anfragen</a>
+              </div>
+            </div>
+            <div class="nav-sub">
+              <a href="angebote.html#yoga" class="nav-sub-trigger">Yoga</a>
+              <div class="nav-subdropdown">
+                <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
+                <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
+                <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+                <a href="angebote.html#yoga-online">Online Yoga</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-item has-dropdown">
           <a href="retreats.html" class="has-caret">Retreats</a>
-          <div class="nav-dropdown">
-            <a href="retreats.html">Wander &amp; Wonder 2026</a>
-            <a href="retreats.html#juli">Juli · InBalance</a>
-            <a href="retreats.html#august">August · Physio &amp; Yoga</a>
-            <a href="retreats.html#september">September · Somatic</a>
-            <a href="retreats.html#somatics-2027">Januar 2027 · Somatics Weekend</a>
-            <a href="retreats.html#schnee-2027">Februar 2027 · Schnee &amp; Yoga</a>
-            <a href="retreats.html#wander-2027">Wander &amp; Wonder 2027</a>
+          <div class="nav-dropdown nav-dropdown--years">
+            <div class="nav-sub">
+              <a href="retreats.html#2026" class="nav-sub-trigger">2026</a>
+              <div class="nav-subdropdown">
+                <a href="retreats.html#juli">Juli · InBalance</a>
+                <a href="retreats.html#august">August · Physio &amp; Yoga</a>
+                <a href="retreats.html#september">September · Somatic</a>
+              </div>
+            </div>
+            <div class="nav-sub">
+              <a href="retreats.html#2027" class="nav-sub-trigger">2027</a>
+              <div class="nav-subdropdown">
+                <a href="retreats.html#somatics-2027">Januar · Somatics Weekend</a>
+                <a href="retreats.html#schnee-2027">Februar · Schnee &amp; Yoga</a>
+                <a href="retreats.html#wander-2027">Juli · Wander &amp; Wonder</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-item has-dropdown">
@@ -64,11 +84,10 @@
     <div class="container">
       <div class="about-inner">
         <div>
-          <span class="label">Über mich</span>
-          <h1>Hallo, ich bin Marie Henriksson.</h1>
-          <p>Als studierte Physiotherapeutin und Yoga-Lehrerin bringe ich beides mit: anatomisches Wissen und echtes Gespür für den Menschen, der vor mir steht. Meine Arbeit findet am liebsten draußen statt, weil ich Bewegung in der Natur liebe.</p>
-          <p style="margin-top:12px;">Mein Ansatz ist aktiv — manuelle Techniken nutze ich dort, wo sie strukturell nötig sind, um deinen Körper wieder ins Training zu bringen. Als Weg zurück in Bewegung.</p>
-          <p style="margin-top:12px;">Ich arbeite mit Menschen, die ihren Körper aktiv verstehen wollen. Individuell auf dein Ziel abgestimmt. Zusammen.</p>
+          <h1>Hallo, ich bin Marie Henriksson</h1>
+          <p>Als studierte Physiotherapeutin und Yoga-Lehrerin bringe ich beides mit: anatomisches Wissen und ein gutes Gespür für den Menschen, der vor mir steht. Meine Arbeit findet am liebsten draußen statt, weil ich Bewegung in der Natur liebe.</p>
+          <p style="margin-top:12px;">Mein Ansatz ist aktiv: Manuelle Techniken nutze ich dort, wo sie strukturell nötig sind, damit du mit deinem Körper wieder ins Training und in Bewegung kommst.</p>
+          <p style="margin-top:12px;">Ich arbeite mit Menschen, die ihren Körper aktiv verstehen wollen, und stimme die Arbeit gemeinsam mit dir auf dein Ziel ab.</p>
         </div>
         <div class="about-img-wrap">
           <image-slot id="ueber-hero-portrait" shape="rounded" radius="0" src="uploads/portrait-walk.jpg" placeholder="Marie – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
@@ -84,48 +103,23 @@
 
         <div class="ueber-img-col">
           <div class="ueber-img-wrap">
-            <image-slot id="ueber-portrait" shape="rounded" radius="0" src="uploads/portrait-namaste.webp" placeholder="Portrait Marie – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+            <image-slot id="ueber-portrait" shape="rounded" radius="0" src="uploads/ueber-mich-meditation.jpg" placeholder="Portrait Marie – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
           </div>
         </div>
 
         <div class="ueber-text">
-          <div class="origin">
-            <span class="label" style="margin-bottom: 16px;">Wer ich bin</span>
-            <p class="origin-lead">Geboren in Heidelberg, aufgewachsen in Italien, geprägt von Finnland und Schweden. Ich bin Multikulti durch und durch und in der Welt zu Hause.</p>
-            <div class="skills-row">
-              <span class="skill-tag">Geboren in Heidelberg</span>
-              <span class="skill-tag">Aufgewachsen in Italien</span>
-              <span class="skill-tag">Finnland</span>
-              <span class="skill-tag">Schweden</span>
-            </div>
-          </div>
+          <h2>Physiotherapie und Yoga aus einer Hand</h2>
+          <p>Ich verbinde beides, damit du verstehst, was in deinem Körper passiert, und dich wieder gern bewegst.</p>
 
-          <p>In der Physiotherapie arbeite ich mit Selbstzahlern, die ihr Training verstehen und aktiv mitgestalten wollen. Eine Stunde, eine Person, kein Fließband. Ich nehme Patienten auf, die wirklich mitmachen wollen.</p>
+          <p>In der Physiotherapie behandle ich Selbstzahler, die ihr Training aktiv mitgestalten wollen. Für jede Behandlung nehme ich mir eine ganze Stunde Zeit.</p>
 
-          <p>Im Yoga ist es dasselbe Prinzip: Du spürst, was du tust, und verstehst, warum. Ich unterrichte vor allem Hatha Vinyasa Yoga und Somatic Yin Yoga, dazu Atemarbeit und Bewegungstherapie. Kein Kurs klingt bei mir nach dem anderen.</p>
+          <p>Im Yoga gilt dasselbe: Du spürst, was du tust, und verstehst, warum. Ich unterrichte vor allem Hatha Vinyasa Yoga und Somatic Yin Yoga, dazu Atemarbeit.</p>
 
-          <p>Meine Kurse finden draußen statt. An der Isar, in Grünanlagen, in der Natur um München. Das ist keine Stilentscheidung, sondern der Kern von dem, was ich tue.</p>
+          <p>Meine Kurse finden draußen statt: an der Isar, in Grünanlagen und in der Natur rund um München. Die Natur gehört für mich ganz selbstverständlich zu meiner Arbeit.</p>
 
           <p>Ich arbeite außerdem als Lauf mama lauf Trainerin in Kooperation mit LML und begleite schwangere und junge Mütter beim Laufen. Buchungen dafür laufen direkt über LML.</p>
 
-          <p>Daneben gebe ich regelmäßig Kurse in Fitnessstudios und im Film- und Medienbereich — als gebuchte Yoga-Einheit für Teams und Produktionen. Online unterrichte ich live, demnächst auch hybrid und auf Abruf.</p>
-
-          <p>Events machen mir besonders viel Spaß: kleine Yoga-Feiern im Garten zum Geburtstag, lockere Bewegungsprogramme auf privaten Gartenparties, oder ein frischer Start in den Tag auf einem Firmenevent. Auch Workshops — ob als Einzelveranstaltung oder als Teil eines größeren Programms — sind herzlich willkommen. Alles auf Anfrage, alles mit einem echten Faden dahinter.</p>
-
-          <div>
-            <span class="label" style="margin-bottom: 16px;">Ausbildung &amp; Schwerpunkte</span>
-            <div class="skills-row">
-              <span class="skill-tag">Physiotherapeutin</span>
-              <span class="skill-tag">Yoga-Lehrerin</span>
-              <span class="skill-tag">Hatha Vinyasa Yoga</span>
-              <span class="skill-tag">Somatic Yin Yoga</span>
-              <span class="skill-tag">Atemarbeit</span>
-              <span class="skill-tag">Bewegungstherapie</span>
-              <span class="skill-tag">Lauf mama lauf Trainerin (LML)</span>
-              <span class="skill-tag">Yogatherapie</span>
-              <span class="skill-tag">FEMNETIC Female Health Coach</span>
-            </div>
-          </div>
+          <p>Events machen mir besonders viel Spaß: kleine Yoga-Feiern im Garten zum Geburtstag, lockere Bewegungsprogramme auf privaten Gartenparties, oder ein frischer Start in den Tag auf einem Firmenevent. Auch Workshops gestalte ich gern, ob einzeln oder als Teil eines größeren Programms. Alles auf Anfrage.</p>
 
           <a href="angebote.html" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">Zu den Angeboten</a>
         </div>
@@ -137,8 +131,7 @@
   <!-- Mein Weg -->
   <section class="cv-section">
     <div class="container">
-      <span class="label">Mein Weg</span>
-      <h2>Berufserfahrung &amp; Retreats.</h2>
+      <h2>Berufserfahrung</h2>
       <ul class="cv-list">
         <li class="cv-item">
           <div class="cv-date">02.2026 – heute</div>
@@ -179,8 +172,7 @@
   <!-- Qualifikationen -->
   <section class="qual-section">
     <div class="container">
-      <span class="label">Qualifikationen</span>
-      <h2>Ausbildungen &amp; Weiterbildungen.</h2>
+      <h2>Ausbildungen &amp; Weiterbildungen</h2>
       <div class="qual-grid">
         <div class="qual-card">
           <h3>Physiotherapie</h3>
@@ -213,9 +205,8 @@
     <div class="container">
       <div class="about-inner about-inner--fill-right">
         <div class="about-text">
-          <span class="label">Wie ich arbeite</span>
-          <h2>Draußen sein ist kein Bonus. Es ist der Ansatz.</h2>
-          <p>In München gibt es genug Möglichkeiten, die Natur als echten Arbeitsraum zu nutzen. Die Isar, Parks, Grünflächen. Ich halte meine Kurse am liebsten draußen, weil ich es liebe. Naturverbunden, geerdet und am liebsten von Sonnenstrahlen geküsst.</p>
+          <h2>Warum ich am liebsten draußen arbeite</h2>
+          <p>In München lässt sich die Natur wunderbar als Arbeitsraum nutzen: die Isar, die Parks, die vielen Grünflächen. Ich halte meine Kurse am liebsten draußen, weil ich es liebe. Naturverbunden, geerdet und am liebsten von Sonnenstrahlen geküsst.</p>
           <p>Meine Physiotherapie-Arbeit findet nach Absprache indoor im Fitness- und Trainingsbereich sowie witterungsabhängig auch im Außenbereich statt. Im Yoga ist die Natur immer dabei.</p>
         </div>
         <div class="about-img-wrap">
@@ -230,13 +221,12 @@
     <div class="container">
       <div class="about-inner about-inner--fill-left">
         <div class="about-img-wrap">
-          <image-slot id="ueber-mindfulness" shape="rounded" radius="0" src="uploads/ueber-mich-meditation.jpg" placeholder="Marie beim Meditieren – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
+          <image-slot id="ueber-mindfulness" shape="rounded" radius="0" src="uploads/portrait-namaste.webp" placeholder="Marie beim Meditieren – Foto hier ablegen" style="width:100%;height:100%;display:block;"></image-slot>
         </div>
         <div class="about-text">
-          <span class="label">Achtsamkeit</span>
-          <h2>Ankommen, bevor es losgeht.</h2>
+          <h2>Ankommen, bevor es losgeht</h2>
           <p>Ob im Yoga, in der Physiotherapie oder im Alltag: Ich glaube an den Moment, in dem du kurz innehältst und wirklich ankommst. Das ist der Ausgangspunkt für alles, was danach passiert.</p>
-          <p style="margin-top:12px;">Deshalb baue ich bewusste Pausen in meine Stunden ein — kurze Atemübungen, Stille, echtes Spüren. Kein esoterisches Beiwerk, sondern die Grundlage, auf der alles andere aufbaut.</p>
+          <p style="margin-top:12px;">Deshalb baue ich bewusste Pausen in meine Stunden ein, etwa kurze Atemübungen oder einen Moment Stille, in dem du in deinen Körper hineinspürst. Darauf baut alles Weitere auf.</p>
         </div>
       </div>
     </div>
@@ -246,29 +236,46 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-marie-transparent.png" alt="marie yoga münchen">
-          <p>Yoga &amp; Physiotherapie in München.</p>
+          <a href="index.html" class="footer-logo"><img src="assets/logo-marie-transparent.png" alt="marie yoga münchen"></a>
+          <ul class="footer-contact">
+            <li><a href="mailto:info@marieyogaaa.de"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@marieyogaaa.de</a></li>
+            <li><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>München</span></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          </div>
+          <a href="buchen.html" class="btn btn-primary footer-cta">Termin buchen</a>
         </div>
-        <nav class="footer-nav" aria-label="Footer-Navigation">
+
+        <nav class="footer-col" aria-label="Seiten">
           <a href="index.html">Home</a>
-          <a href="retreats.html">Retreats</a>
           <a href="ueber-mich.html">Über mich</a>
-          <a href="events.html">Events</a>
           <a href="angebote.html">Angebote</a>
           <a href="buchen.html">Buchen</a>
         </nav>
-        <div class="footer-contact">
-          <h4>Kontakt</h4>
-          <a href="mailto:info@marieyoga.de">info@marieyoga.de</a>
-          <a href="https://www.instagram.com/marieyogaaa/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Marieyoga – Yoga &amp; Physiotherapie München</span>
-        <div class="footer-legal">
+        <nav class="footer-col" aria-label="Angebote">
+          <a href="angebote.html#physio">Physiotherapie</a>
+          <a href="angebote.html#yoga-outdoor">Outdoor Yoga · Isar</a>
+          <a href="angebote.html#yoga-outdoor-donnerstag">Outdoor Yoga · Engl. Garten</a>
+          <a href="angebote.html#yoga-1zu1">1:1 Yoga</a>
+          <a href="angebote.html#yoga-online">Online Yoga</a>
+        </nav>
+        <nav class="footer-col" aria-label="Retreats und Events">
+          <a href="retreats.html#2027">Retreats 2027</a>
+          <a href="retreats.html#2026">Retreats 2026</a>
+          <a href="events.html">Alle Events</a>
+          <a href="events.html#midsommar">Midsommar</a>
+        </nav>
+        <nav class="footer-col" aria-label="Rechtliches">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
-        </div>
+          <a href="agb.html">AGB</a>
+          <button type="button" class="cookie-settings-link">Cookie-Einstellungen</button>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Marieyoga – Yoga &amp; Physiotherapie in München</span>
+        <a href="#" class="footer-top">Nach oben ↑</a>
       </div>
     </div>
   </footer>
