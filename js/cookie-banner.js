@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
   banner.id = 'cookie-banner';
   banner.innerHTML =
     '<div id="cb-text">' +
-      '<p class="cb-title">Cookies &amp; Datenschutz</p>' +
-      '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), ' +
-      'um meine Website zu verbessern und Reichweite zu messen, und zeige meinen Instagram-Feed. ' +
-      'Du entscheidest selbst.</p>' +
+      '<p class="cb-title">Datenschutz</p>' +
+      '<p>Ich nutze keine Cookies und kein Tracking. Auf der Startseite zeige ich meinen ' +
+      'Instagram-Feed, dafür werden Bilder über den Dienst Behold geladen. Du entscheidest selbst.</p>' +
       '<a href="datenschutz.html">Datenschutzerklärung</a>' +
     '</div>' +
     '<div id="cb-btns">' +
