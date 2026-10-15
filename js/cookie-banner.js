@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     '<div id="cb-text">' +
       '<p class="cb-title">Cookies &amp; Datenschutz</p>' +
       '<p>Ich nutze Cookies und Tracking-Tools (Google Tag Manager, Meta Pixel), ' +
-      'um meine Website zu verbessern und Reichweite zu messen. Du entscheidest selbst.</p>' +
+      'um meine Website zu verbessern und Reichweite zu messen, und zeige meinen Instagram-Feed. ' +
+      'Du entscheidest selbst.</p>' +
       '<a href="datenschutz.html">Datenschutzerklärung</a>' +
     '</div>' +
     '<div id="cb-btns">' +
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     banner.style.display = 'none';
     banner.remove();
     loadTracking();
+    document.dispatchEvent(new Event('cookie-consent-all'));
   };
 
   document.getElementById('cb-necessary').onclick = function () {

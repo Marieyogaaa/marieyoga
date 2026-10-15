@@ -1113,6 +1113,27 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   overflow: hidden;
 }
 .ig-tile:hover { opacity: 0.85; transform: scale(1.02); }
+.ig-tile { position: relative; background: rgba(186,200,189,0.35); }
+.ig-tile img { width: 100%; height: 100%; object-fit: cover; }
+.ig-badge {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: var(--white);
+  font-size: 14px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+.ig-consent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.ig-consent a { text-decoration: underline; }
+.ig-consent .btn { flex-shrink: 0; }
 
 /* ============================================
    Responsive – Tablet (≤900px)
@@ -1215,6 +1236,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 
   .ig-feed-grid { grid-template-columns: repeat(3,1fr); }
   .ig-feed-header { flex-direction: column; align-items: flex-start; }
+  .ig-consent { flex-direction: column; align-items: flex-start; }
 
   .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
   .footer-legal { flex-direction: column; align-items: center; gap: 10px; }
