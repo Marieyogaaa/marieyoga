@@ -621,6 +621,16 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .footer-bottom a { color: rgba(253,249,237,0.32); transition: color 0.2s; }
 .footer-bottom a:hover { color: rgba(253,249,237,0.7); }
 .footer-legal { display: flex; gap: 24px; }
+.footer-legal .cookie-settings-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: rgba(253,249,237,0.32);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-legal .cookie-settings-link:hover { color: rgba(253,249,237,0.7); }
 
 /* ============================================
    Page Header (inner pages)
