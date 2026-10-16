@@ -12,6 +12,8 @@
   var submit   = document.getElementById('booking-submit');
   var errorBox = document.getElementById('booking-error');
   var dateSel  = document.getElementById('booking-date');
+  var payBox   = document.getElementById('booking-pay');
+  var payLink  = document.getElementById('booking-pay-link');
   var current  = null;
 
   // Adresse der Google-Apps-Script-Web-App (siehe automation/google-apps-script/ANLEITUNG.md).
@@ -91,13 +93,18 @@
       offer:    row.dataset.offer,
       detail:   row.dataset.detail,
       price:    row.dataset.price,
-      interest: row.dataset.mode === 'interest'
+      interest: row.dataset.mode === 'interest',
+      payUrl:   row.dataset.payUrl || ''
     };
 
     form.reset();
     form.hidden = false;
     success.hidden = true;
     errorBox.hidden = true;
+    payBox.hidden = true;
+    payment.querySelector('p').textContent = current.payUrl
+      ? 'Nach dem Absenden kannst du direkt online bezahlen.'
+      : 'Hier kannst du bald direkt online bezahlen.';
 
     document.getElementById('booking-dialog-title').textContent = current.offer;
     document.getElementById('booking-price').textContent = current.price;
@@ -187,7 +194,15 @@
     });
   });
 
-  // TODO: Online-Zahlung anbinden.
+  // Erfolgsansicht zeigen; bei Angeboten mit Zahlungslink (data-pay-url) kommt der Bezahl-Button dazu
+  function showSuccess(data) {
+    form.hidden = true;
+    success.hidden = false;
+    var paid = current && current.payUrl && data && data.kind === 'booking' && data.type === 'einzel';
+    payBox.hidden = !paid;
+    if (paid) payLink.href = current.payUrl;
+  }
+
   function send(data) {
     if (!BOOKING_ENDPOINT) return sendViaMail(data);
 
@@ -200,8 +215,7 @@
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.error);
-        form.hidden = true;
-        success.hidden = false;
+        showSuccess(data);
       })
       .catch(function () {
         showError('Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib mir an info@marieyogaaa.de.');
@@ -236,8 +250,7 @@
       + '&body=' + encodeURIComponent(body);
 
     document.getElementById('booking-success-text').textContent = 'Deine Buchung geht per E-Mail an mich. Ich melde mich in Kürze bei dir.';
-    form.hidden = true;
-    success.hidden = false;
+    showSuccess(b);
   }
 
   dialog.querySelectorAll('.booking-close, .booking-close-btn').forEach(function (btn) {

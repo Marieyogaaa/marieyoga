@@ -146,7 +146,7 @@
             <td data-label="Preis">20 €</td>
             <td><button type="button" class="btn btn-primary booking-open">Buchen</button></td>
           </tr>
-          <tr id="von-innen-warm" data-category="events" data-offer="VON INNEN WARM" data-iso="2026-11-13T18:30" data-dates="Freitag, 13.11. um 18:30–21:00 Uhr" data-detail="Fr, 13.11.2026, 18:30–21:00 Uhr" data-price="55 €" data-types="einzel">
+          <tr id="von-innen-warm" data-category="events" data-offer="VON INNEN WARM" data-pay-url="https://buy.stripe.com/00w3cxb9q2W9bgG0i36Ri04" data-iso="2026-11-13T18:30" data-dates="Freitag, 13.11. um 18:30–21:00 Uhr" data-detail="Fr, 13.11.2026, 18:30–21:00 Uhr" data-price="55 €" data-types="einzel">
             <td data-label="Angebot"><strong>VON INNEN WARM</strong><span>Event mit Veronika Embloom</span></td>
             <td data-label="Datum">Fr, 13.11.2026<br>18:30–21:00 Uhr</td>
             <td data-label="Preis">55 €</td>
@@ -270,6 +270,9 @@
     <div class="booking-success" id="booking-success" hidden>
       <h3 id="booking-success-title">Deine Buchung ist angekommen</h3>
       <p id="booking-success-text">Du bekommst gleich eine Bestätigung per E-Mail. Treffpunkt bzw. Link schicke ich dir spätestens am Vortag.</p>
+      <p class="booking-pay" id="booking-pay" hidden>
+        <a class="btn btn-primary" id="booking-pay-link" href="#" target="_blank" rel="noopener">Jetzt online bezahlen</a>
+      </p>
       <button type="button" class="btn btn-outline booking-close-btn">Schließen</button>
     </div>
   </dialog>
