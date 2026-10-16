@@ -1697,3 +1697,5 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .event-featured--img { grid-template-columns: 1fr; grid-template-rows: none; }
   .event-featured-img { grid-row: auto; width: 100%; max-width: 360px; }
 }
+.event-featured--sage { background: var(--sage); }
+.event-featured--sage .event-featured-img { aspect-ratio: 1; object-fit: cover; }
