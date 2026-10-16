@@ -1688,10 +1688,12 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .hero--namaste { align-items: flex-end; background-position: 48% top; }
 }
 
-/* Event-Karte mit kleinem Flyer-Bild */
-.event-featured--img { grid-template-columns: 180px 1fr auto; align-items: center; }
-.event-featured-img { width: 180px; height: auto; display: block; box-shadow: 0 8px 24px rgba(52,79,56,0.18); }
+/* Event-Karte mit Flyer-Bild (groß genug zum Lesen) */
+.event-featured--img { grid-template-columns: 340px 1fr; grid-template-rows: auto auto; column-gap: 48px; row-gap: 24px; align-items: center; }
+.event-featured-img { grid-row: 1 / span 2; width: 340px; max-width: 100%; height: auto; display: block; box-shadow: 0 8px 24px rgba(52,79,56,0.18); }
+.event-featured--img .ev-feat-cta { flex-direction: row; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 12px 28px; }
+.event-featured--img .ev-feat-price { white-space: normal; }
 @media (max-width: 900px) {
-  .event-featured--img { grid-template-columns: 1fr; }
-  .event-featured-img { width: 200px; }
+  .event-featured--img { grid-template-columns: 1fr; grid-template-rows: none; }
+  .event-featured-img { grid-row: auto; width: 100%; max-width: 360px; }
 }
