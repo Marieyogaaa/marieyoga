@@ -2301,3 +2301,47 @@ body { font-size: 17px; }
 /* Angebote: ein Foto pro Angebot, gleiche Ecken wie die übrigen Bilder, keine Collage */
 .angebote-foto { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--r-img); }
 .event-featured-img { box-shadow: none; }
+
+/* ============================================
+   Angebotsseite: ruhiges, gleichmäßiges Layout
+   – keine Farbkästen, feine Trennlinien, viel Luft
+   – Bild/Video füllt die volle Höhe neben dem Text
+   – Bildseite wechselt gleichmäßig (rechts, links, …)
+   ============================================ */
+.angebote-list .container > .angebote-item,
+#physio, #yoga-outdoor, #yoga-1zu1, #yoga-outdoor-donnerstag, #yoga-online {
+  background: transparent;
+}
+.angebote-item {
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 112px);
+  align-items: stretch;
+  padding: clamp(64px, 8vw, 112px) 0;
+  border-top: 1px solid rgba(52,79,56,0.16);
+}
+.angebote-list .container > .angebote-item:first-of-type { border-top: 0; padding-top: clamp(24px, 3vw, 40px); }
+.angebote-item > .angebote-content { order: 1; align-self: center; }
+.angebote-item > .angebote-img { order: 2; }
+.angebote-item:nth-child(even) > .angebote-img { order: 0; }
+.angebote-img {
+  height: auto;
+  min-height: 520px;
+  align-self: stretch;
+  position: relative;
+  border-radius: var(--r-img);
+  overflow: hidden;
+}
+.angebote-img > img, .angebote-img > video, .angebote-img > image-slot {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 0;
+}
+@media (max-width: 900px) {
+  .angebote-item { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+  .angebote-item > .angebote-img,
+  .angebote-item:nth-child(even) > .angebote-img { order: 0; min-height: 0; aspect-ratio: 4 / 5; }
+  .angebote-item > .angebote-content { order: 1; }
+}
