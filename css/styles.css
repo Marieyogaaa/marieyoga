@@ -1713,16 +1713,38 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   min-height: max(100vh, 560px);
 }
 .hero-split-panel {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
-  /* weich ineinanderlaufende Farbfelder: Flieder oben rechts, Beige links, Salbei unten */
-  background-color: #E8E0EC;
-  background-image:
-    radial-gradient(110% 75% at 90% 0%, rgba(193,174,226,0.95) 0%, rgba(193,174,226,0) 62%),
-    radial-gradient(95% 80% at 0% 40%, rgba(240,231,214,1) 0%, rgba(240,231,214,0) 68%),
-    radial-gradient(120% 75% at 45% 108%, rgba(186,200,189,1) 0%, rgba(186,200,189,0.55) 40%, rgba(186,200,189,0) 75%),
-    radial-gradient(80% 60% at 70% 55%, rgba(255,253,247,0.7) 0%, rgba(255,253,247,0) 70%);
+  background: #E2D8DF;
 }
+/* Organische Farbfelder: unregelmäßig verteilt und stark weichgezeichnet,
+   damit keine Kanten oder Linien sichtbar sind */
+.hero-split-panel::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background-image:
+    radial-gradient(48% 38% at 82% 10%, #B9A3DD 0%, rgba(185,163,221,0) 100%),
+    radial-gradient(36% 42% at 100% 50%, #D3B8DE 0%, rgba(211,184,222,0) 100%),
+    radial-gradient(50% 44% at 6% 26%, #E9D6B6 0%, rgba(233,214,182,0) 100%),
+    radial-gradient(30% 26% at 46% 46%, #F1E7D8 0%, rgba(241,231,216,0) 100%),
+    radial-gradient(52% 40% at 14% 92%, #A9BBAD 0%, rgba(169,187,173,0) 100%),
+    radial-gradient(40% 30% at 74% 88%, #C2CFC3 0%, rgba(194,207,195,0) 100%);
+  filter: blur(40px);
+}
+/* feine Körnung wie in der Vorlage */
+.hero-split-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.16;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+.hero-split-panel > * { position: relative; z-index: 1; }
 .hero-split-text {
   display: flex;
   flex-direction: column;
