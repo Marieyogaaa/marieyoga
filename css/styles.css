@@ -1699,3 +1699,70 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .event-featured--sage { background: var(--sage); }
 .event-featured--sage .event-featured-img { aspect-ratio: 1; object-fit: cover; }
+
+/* ============================================
+   Startseite: geteilter Hero
+   Links eine Fläche in Maries Markenfarben (Flieder aus dem Logo,
+   Salbei), rechts das Foto. Die Navigation liegt darüber auf Creme.
+   ============================================ */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: max(calc(100vh - var(--nav-h)), 520px);
+}
+.hero-split-panel {
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(170deg, #C1AEE2 0%, #D8CDEB 38%, #D4DDD6 70%, #BAC8BD 100%);
+}
+.hero-split-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  padding: var(--pad-y) clamp(28px, 4vw, 64px) clamp(48px, 7vw, 88px) var(--pad-x);
+}
+.hero-split h1 { color: var(--green); }
+.hero-split .hero-tags {
+  color: var(--green);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: -8px;
+}
+.hero-split .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-split-photo { position: relative; overflow: hidden; }
+.hero-split-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 44% center;
+}
+
+/* Navigation: Links mittig, Buchen ganz rechts */
+@media (min-width: 901px) {
+  .nav-inner { position: relative; }
+  .nav-links {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .nav-links > * { pointer-events: auto; }
+  .nav-links > .btn-primary {
+    position: absolute;
+    right: var(--pad-x);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-split { grid-template-columns: 1fr; min-height: 0; }
+  .hero-split-photo { order: -1; height: 56vh; min-height: 320px; }
+  .hero-split-text { max-width: none; margin-left: 0; padding: 48px var(--pad-x) 56px; }
+}
