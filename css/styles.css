@@ -1715,7 +1715,13 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 .hero-split-panel {
   display: flex;
   align-items: flex-end;
-  background: linear-gradient(170deg, #C1AEE2 0%, #D8CDEB 38%, #D4DDD6 70%, #BAC8BD 100%);
+  /* weich ineinanderlaufende Farbfelder: Flieder oben rechts, Beige links, Salbei unten */
+  background-color: #E8E0EC;
+  background-image:
+    radial-gradient(110% 75% at 90% 0%, rgba(193,174,226,0.95) 0%, rgba(193,174,226,0) 62%),
+    radial-gradient(95% 80% at 0% 40%, rgba(240,231,214,1) 0%, rgba(240,231,214,0) 68%),
+    radial-gradient(120% 75% at 45% 108%, rgba(186,200,189,1) 0%, rgba(186,200,189,0.55) 40%, rgba(186,200,189,0) 75%),
+    radial-gradient(80% 60% at 70% 55%, rgba(255,253,247,0.7) 0%, rgba(255,253,247,0) 70%);
 }
 .hero-split-text {
   display: flex;
