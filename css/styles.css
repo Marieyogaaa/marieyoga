@@ -1884,7 +1884,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
    Texturen (uploads/texturen) auf der Startseite
    ============================================ */
 .testimonials-textur {
-  background: url('../uploads/texturen/organisch-flieder-bluete.webp') center / cover no-repeat, var(--cream);
+  background: url('../uploads/texturen/verlauf-blau-gelbgruen.webp') center / cover no-repeat, var(--cream);
 }
 .testimonials-textur .testimonial-card {
   background: rgba(255,253,247,0.78);
@@ -1902,7 +1902,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .cs-card-img {
   min-height: 300px;
-  background: url('../uploads/texturen/organisch-kachel-honig.webp') center / cover no-repeat;
+  background: url('../uploads/texturen/verlauf-hoch-orange-gruen.webp') center / cover no-repeat;
 }
 .cs-card-body {
   display: flex;
