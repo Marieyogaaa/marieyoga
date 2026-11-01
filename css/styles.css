@@ -1873,3 +1873,40 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   .offer-tile-cap { flex-direction: column; gap: 4px; font-size: 11px; }
   .offer-tile-meta { font-size: 13px; }
 }
+
+/* ============================================
+   Texturen (uploads/texturen) auf der Startseite
+   ============================================ */
+.testimonials-textur {
+  background: url('../uploads/texturen/textur-flieder-bluete.webp') center / cover no-repeat, var(--cream);
+}
+.testimonials-textur .testimonial-card {
+  background: rgba(255,253,247,0.78);
+  border-top: none;
+  border-radius: 0;
+}
+.cs-card--bild {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+.cs-card-img {
+  min-height: 300px;
+  background: url('../uploads/texturen/kachel-rose-gruen.webp') center 30% / cover no-repeat;
+}
+.cs-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(32px, 4vw, 56px);
+}
+.cs-card--bild p { max-width: 460px; }
+@media (max-width: 680px) {
+  .cs-card--bild { grid-template-columns: 1fr; }
+  .cs-card-img { min-height: 200px; }
+}
