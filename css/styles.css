@@ -2345,3 +2345,14 @@ body { font-size: 17px; }
   .angebote-item:nth-child(even) > .angebote-img { order: 0; min-height: 0; aspect-ratio: 4 / 5; }
   .angebote-item > .angebote-content { order: 1; }
 }
+
+/* Parallax: Medium ist 24 % höher als sein Rahmen und wandert beim Scrollen */
+.parallax > img, .parallax > video, .parallax > image-slot {
+  top: -12% !important;
+  bottom: auto !important;
+  height: 124% !important;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax > img, .parallax > video, .parallax > image-slot { top: 0 !important; height: 100% !important; }
+}
