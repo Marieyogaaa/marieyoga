@@ -1727,7 +1727,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   inset: -20%;
   background-image:
     radial-gradient(48% 38% at 82% 10%, #B9A3DD 0%, rgba(185,163,221,0) 100%),
-    radial-gradient(36% 42% at 100% 50%, #D3B8DE 0%, rgba(211,184,222,0) 100%),
+    radial-gradient(36% 42% at 100% 50%, #CDBDE6 0%, rgba(205,189,230,0) 100%),
     radial-gradient(50% 44% at 6% 26%, #E9D6B6 0%, rgba(233,214,182,0) 100%),
     radial-gradient(30% 26% at 46% 46%, #F1E7D8 0%, rgba(241,231,216,0) 100%),
     radial-gradient(52% 40% at 14% 92%, #A9BBAD 0%, rgba(169,187,173,0) 100%),
@@ -1896,7 +1896,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .cs-card-img {
   min-height: 300px;
-  background: url('../uploads/texturen/kachel-rose-gruen.webp') center 30% / cover no-repeat;
+  background: url('../uploads/texturen/kachel-flieder-gruen.webp') center 30% / cover no-repeat;
 }
 .cs-card-body {
   display: flex;
