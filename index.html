@@ -14,7 +14,7 @@
 <body>
 
   <!-- ============ NAV ============ -->
-  <nav class="nav nav-split-hero">
+  <nav class="nav nav-dark-hero">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
         <img src="assets/logo-marie-transparent.png" alt="marie yoga münchen" width="42" height="42">
@@ -82,19 +82,18 @@
   </nav>
 
   <!-- ============ HERO ============ -->
-  <section class="hero-split">
-    <div class="hero-split-panel">
-      <div class="hero-split-text">
-        <p class="sub hero-tags">Körperwissen, Evidenzbasiert, Ganzheitlich</p>
-        <h1>Yoga und Physiotherapie in München</h1>
-        <div class="hero-ctas">
-          <a href="angebote.html" class="btn btn-primary">Angebote entdecken</a>
-          <a href="retreats.html" class="btn btn-outline">Retreat buchen</a>
-        </div>
+  <section class="hero-full hero-full--links">
+    <picture class="hero-full-media">
+      <source media="(max-width: 700px)" srcset="uploads/hero-wiese-mobil.webp">
+      <img src="uploads/hero-wiese.webp" alt="Marie sitzt lachend auf einer Wiese auf ihrer Yogamatte" width="2400" height="1600">
+    </picture>
+    <div class="hero-full-content">
+      <p class="hero-full-tags"><span>Körperwissen</span><span>Evidenzbasiert</span><span>Ganzheitlich</span></p>
+      <h1>Yoga und Physiotherapie in München</h1>
+      <div class="hero-full-ctas">
+        <a href="angebote.html" class="hero-link">Angebote entdecken</a>
+        <a href="retreats.html" class="hero-link">Retreat buchen</a>
       </div>
-    </div>
-    <div class="hero-split-photo">
-      <img src="uploads/hero-namaste-lachen.webp" alt="Marie Henriksson lacht, die Hände vor der Brust zusammengelegt" width="1250" height="815">
     </div>
   </section>
 
@@ -108,11 +107,12 @@
           <a href="angebote.html" class="text-link">Alle Angebote ansehen</a>
         </div>
       </div>
+      <div class="offer-scroller"><div class="offer-sticky">
       <div class="offer-tiles">
         <a class="offer-tile" href="angebote.html#physio">
           <div class="offer-tile-img"><img src="uploads/physio-session.jpg" alt="Marie behandelt eine Patientin draußen auf der Matte" loading="lazy" style="object-position:center 40%;"></div>
           <div class="offer-tile-cap"><span>Physiotherapie</span></div>
-          <p class="offer-tile-meta">Selbstzahler, 30 oder 60 Minuten, ab 80 €</p>
+          <p class="offer-tile-meta">1:1 für alle, die ihren Körper verstehen und aktiv bleiben wollen</p>
         </a>
         <a class="offer-tile" href="angebote.html#yoga">
           <div class="offer-tile-img"><img src="uploads/yoga-outdoor-englischergarten-3.jpg" alt="Gruppe beim Yoga auf der Wiese im Englischen Garten" loading="lazy" style="object-position:center;"></div>
@@ -130,6 +130,7 @@
           <p class="offer-tile-meta">Wochenenden in den Bergen, nur für Frauen, ab Januar 2027</p>
         </a>
       </div>
+      </div></div>
     </div>
   </section>
 
@@ -323,6 +324,7 @@
   </footer>
 
   <script src="js/nav.js"></script>
+  <script src="js/offer-scroller.js"></script>
   <script src="js/cookie-banner.js"></script>
   <script src="js/instagram-feed.js"></script>
 

@@ -2091,7 +2091,8 @@ body { font-size: 17px; }
   background: var(--bg-lace);
   margin-bottom: 10px;
 }
-.event-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Flyer immer vollständig zeigen, alle Karten im gleichen 4:5-Rahmen */
+.event-card-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .event-card-img--textur { background: url('../uploads/texturen/organisch-kachel-flieder.webp') center / cover no-repeat; }
 .event-card-date { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
 .event-card h3 { font-size: clamp(22px, 2vw, 26px); }
@@ -2107,14 +2108,8 @@ body { font-size: 17px; }
 }
 .event-card-foot span { font-family: var(--f-h); font-size: 20px; }
 .event-card-foot .btn { padding: 12px 22px; font-size: 14px; }
-@media (max-width: 900px) {
-  .event-cards { grid-template-columns: 1fr 1fr; }
-  .event-card:nth-child(3) { grid-column: 1 / -1; }
-  .event-card:nth-child(3) .event-card-img { aspect-ratio: 16 / 9; }
-}
-@media (max-width: 560px) {
-  .event-cards { grid-template-columns: 1fr; }
-  .event-card-img { aspect-ratio: 4 / 3; }
+@media (max-width: 680px) {
+  .event-cards { grid-template-columns: 1fr; gap: 48px; }
 }
 
 /* Retreats auf Dunkelgrün */
@@ -2140,3 +2135,165 @@ body { font-size: 17px; }
 .price-row { gap: 24px; }
 .price-row > :last-child { white-space: nowrap; text-align: right; }
 .price-block-label { color: var(--text-muted); }
+
+/* ============================================
+   Startseite: Hero als ruhiges Vollbild-Foto, Text zentriert
+   ============================================ */
+.hero-full {
+  position: relative;
+  min-height: max(100vh, 560px);
+  margin-top: calc(-1 * var(--nav-h));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--cream);
+  text-align: center;
+}
+.hero-full-media, .hero-full-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-full-media img { object-fit: cover; object-position: 50% 45%; }
+/* Abdunklung nur oben (Navigation) und hinter dem Text, das Foto bleibt sonst frei */
+.hero-full::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(24,32,26,0.45) 0%, rgba(24,32,26,0) 22%),
+    radial-gradient(ellipse 55% 42% at 50% 52%, rgba(24,32,26,0.42) 0%, rgba(24,32,26,0) 70%);
+  pointer-events: none;
+}
+.hero-full-content {
+  position: relative;
+  z-index: 1;
+  padding: calc(var(--nav-h) + 40px) var(--pad-x) 40px;
+  max-width: 900px;
+}
+.hero-full-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,253,247,0.88);
+  margin-bottom: 22px;
+}
+.hero-full h1 {
+  color: var(--cream);
+  font-size: clamp(40px, 5.6vw, 76px);
+  line-height: 1.06;
+  max-width: none;
+}
+.hero-full-ctas {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+}
+.hero-link {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(255,253,247,0.7);
+  padding-bottom: 4px;
+  transition: border-color 160ms ease-out, color 160ms ease-out;
+}
+.hero-link:hover { border-color: var(--cream); color: #fff; }
+@media (max-width: 700px) {
+  .hero-full h1 { font-size: clamp(34px, 9.5vw, 44px); }
+  .hero-full-media img { object-position: 16% 50%; }
+  .hero-full { place-items: end center; }
+  .hero-full-content { padding-bottom: 64px; }
+  .hero-full::after {
+    background:
+      linear-gradient(to bottom, rgba(24,32,26,0) 40%, rgba(24,32,26,0.62) 100%);
+  }
+}
+
+/* Handy: Navigation ist immer hell hinterlegt, Buchen bleibt grün */
+@media (max-width: 680px) {
+  .nav-dark-hero:not(.nav-scrolled) .nav-cta { background: var(--green); border-color: var(--green); color: var(--cream); }
+}
+
+/* Hero mit Foto rechts (Marie), Text links auf der ruhigen Wiese */
+.hero-full--links { place-items: center start; text-align: left; }
+.hero-full--links .hero-full-content {
+  max-width: 600px;
+  margin-left: max(var(--pad-x), calc((100vw - var(--max-w)) / 2 + var(--pad-x)));
+  padding-left: 0;
+  padding-right: 0;
+}
+.hero-full--links .hero-full-tags,
+.hero-full--links .hero-full-ctas { justify-content: flex-start; }
+.hero-full--links .hero-full-media img { object-position: 62% 40%; }
+.hero-full--links::after {
+  background:
+    linear-gradient(to bottom, rgba(24,32,26,0.40) 0%, rgba(24,32,26,0) 20%),
+    linear-gradient(to right, rgba(24,32,26,0.58) 0%, rgba(24,32,26,0.32) 38%, rgba(24,32,26,0) 58%);
+}
+@media (max-width: 700px) {
+  .hero-full--links { place-items: end start; }
+  .hero-full--links .hero-full-content { margin-left: 0; padding: 0 var(--pad-x) 56px; }
+  .hero-full--links .hero-full-media img { object-position: 55% 0%; }
+  .hero-full--links .hero-full-media { top: var(--nav-h); }
+  .hero-full--links::after { background: linear-gradient(to bottom, rgba(24,32,26,0) 38%, rgba(24,32,26,0.66) 100%); }
+}
+
+/* Angebote mobil: eine Kachel pro Bildschirm, seitlich wischen */
+@media (max-width: 680px) {
+  .offer-tiles {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    margin: 0 calc(-1 * var(--pad-x));
+    padding: 0 var(--pad-x) 8px;
+    scroll-padding: 0 var(--pad-x);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .offer-tiles::-webkit-scrollbar { display: none; }
+  .offer-tile { flex: 0 0 86%; scroll-snap-align: start; }
+  .offer-tile:last-child:nth-child(odd) { grid-column: auto; }
+  .offer-tile .offer-tile-img, .offer-tile:last-child:nth-child(odd) .offer-tile-img { aspect-ratio: 4 / 5; }
+  .offer-tile-cap { flex-direction: row; font-size: 12px; }
+  .offer-tile-meta { font-size: 15px; }
+}
+
+/* Angebote mobil, an das Scrollen gekoppelt (js/offer-scroller.js) */
+@media (max-width: 680px) {
+  .offer-scroller.is-pinned .offer-sticky {
+    position: sticky;
+    top: calc(var(--nav-h) + 20px);
+    overflow: hidden;
+    margin: 0 calc(-1 * var(--pad-x));
+    padding: 0 var(--pad-x);
+  }
+  .offer-scroller.is-pinned .offer-tiles {
+    overflow: visible;
+    scroll-snap-type: none;
+    margin: 0;
+    padding: 0;
+    gap: calc(2 * var(--pad-x));
+    will-change: transform;
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .offer-scroller.is-pinned .offer-tile { flex: 0 0 100%; }
+}
+
+/* Hero links: Überschrift bleibt auf der Wiese, auch bei schmaleren Fenstern */
+@media (min-width: 701px) {
+  .hero-full--links .hero-full-content { max-width: min(600px, 44vw); }
+  .hero-full--links h1 { font-size: clamp(38px, 4.6vw, 68px); }
+}
+
+@media (max-width: 680px) and (prefers-reduced-motion: reduce) {
+  .offer-tile { flex-basis: 100%; }
+}
