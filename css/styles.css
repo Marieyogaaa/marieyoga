@@ -1807,3 +1807,69 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 @media (max-width: 680px) {
   .nav-split-hero:not(.nav-scrolled) .nav-links a.on-photo { color: var(--green); text-shadow: none; }
 }
+
+/* ============================================
+   Startseite: Angebote im Editorial-Stil
+   Kopfzeile zweispaltig, darunter vier Fotokacheln im Hochformat
+   mit Nummer und Name als Bildunterschrift
+   ============================================ */
+.offers--editorial {
+  background: linear-gradient(180deg, #F1EDE6 0%, var(--cream) 100%);
+  padding: clamp(72px, 10vw, 140px) 0;
+}
+.offers-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+  margin-bottom: clamp(56px, 8vw, 104px);
+}
+.offers-intro h2 { font-size: clamp(28px, 3vw, 38px); max-width: 420px; }
+.offers-intro-text p { color: var(--text-muted); max-width: 460px; }
+.text-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.text-link:hover { color: var(--text-muted); }
+.offer-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.offer-tile { display: block; color: var(--green); }
+.offer-tile-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--sage); }
+.offer-tile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.offer-tile:hover .offer-tile-img img { transform: scale(1.03); }
+.offer-tile-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(52,79,56,0.25);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.offer-tile-meta { margin-top: 8px; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+@media (max-width: 900px) {
+  .offers-intro { grid-template-columns: 1fr; }
+  .offer-tiles { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+}
+@media (max-width: 480px) {
+  .offer-tiles { gap: 14px; row-gap: 32px; }
+  .offer-tile-cap { flex-direction: column; gap: 4px; font-size: 11px; }
+  .offer-tile-meta { font-size: 13px; }
+}
