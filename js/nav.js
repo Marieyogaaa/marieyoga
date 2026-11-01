@@ -78,24 +78,3 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Startseite mit geteiltem Hero: Navigationslinks, die über dem Foto liegen,
-// werden hell, die über der hellen Fläche bleiben grün.
-document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.querySelector('.nav-split-hero');
-  var photo = document.querySelector('.hero-split-photo');
-  if (!nav || !photo) return;
-  var items = nav.querySelectorAll('.nav-links > a:not(.btn), .nav-links > .nav-item > a');
-
-  function update() {
-    var edge = photo.getBoundingClientRect().left;
-    var photoTop = photo.getBoundingClientRect().top;
-    items.forEach(function (a) {
-      var r = a.getBoundingClientRect();
-      var overPhoto = photoTop <= r.top && (r.left + r.width / 2) > edge;
-      a.classList.toggle('on-photo', overPhoto);
-    });
-  }
-  update();
-  window.addEventListener('resize', update);
-  window.addEventListener('scroll', update, { passive: true });
-});
