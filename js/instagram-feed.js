@@ -39,7 +39,7 @@ function loadInstagramFeed(grid) {
   if (grid.dataset.loaded) return;
   grid.dataset.loaded = 'true';
 
-  fetch(IG_FEED_URL)
+  fetch(IG_FEED_URL, { cache: 'no-store' })
     .then(function (res) {
       if (!res.ok) throw new Error('Feed nicht erreichbar');
       return res.json();
