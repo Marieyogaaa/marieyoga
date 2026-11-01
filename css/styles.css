@@ -2015,15 +2015,15 @@ h3 { text-wrap: balance; }
 .angebote-list > .container { min-width: 0; width: 100%; }
 
 /* Instagram-Feed: größere Kacheln, drei pro Reihe, leicht gerundet wie andere frei stehende Bilder */
-.ig-feed-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ig-feed-grid { grid-template-columns: repeat(6, 1fr); gap: 12px; }
 .ig-tile { border-radius: var(--r-img); }
 .ig-tile:hover { transform: none; opacity: 1; }
 @media (hover: hover) and (pointer: fine) {
   .ig-tile img { transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1); }
   .ig-tile:hover img { transform: scale(1.03); }
 }
-@media (max-width: 680px) {
-  .ig-feed-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (max-width: 900px) {
+  .ig-feed-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 }
 
 
@@ -2077,20 +2077,6 @@ body { font-size: 17px; }
 .link-arrow:hover, .text-link:hover { color: var(--text-muted); gap: 0; }
 .sec--gruen .text-link, .sec--gruen .link-arrow { color: var(--cream); }
 
-/* Einheitlicher, dezenter Bildlook für Fotos (Originaldateien bleiben unverändert):
-   etwas wärmer, Grün leicht Richtung Salbei, Kontrast minimal weicher */
-.offer-tile-img img,
-.hero-split-photo img,
-.about-snippet image-slot,
-.retreat-teaser image-slot,
-.ueber-section image-slot,
-.angebote-item img,
-.angebote-item image-slot,
-.retreat-content image-slot,
-.events-private-img img,
-.events-midsommar-photo img {
-  filter: saturate(0.9) sepia(0.06) contrast(0.97) brightness(1.02);
-}
 
 /* Events als Karten mit Flyer */
 .event-cards {

@@ -66,7 +66,7 @@
     document.getElementById('booking-date-fixed').hidden = !fixed;
     document.getElementById('booking-date-text').textContent = fixed ? dates[0].label : '';
     // Oben unter dem Titel nur bei Wochenkursen den Rhythmus zeigen, sonst steht der Termin doppelt
-    document.getElementById('booking-detail').textContent = fixed ? '' : current.detail + ' · ';
+    document.getElementById('booking-detail').textContent = fixed ? '' : current.detail + ', ';
   }
 
   var TYPE_LABELS = {
@@ -114,7 +114,7 @@
     // Interesse melden: nur Name, E-Mail und Nachricht, ohne Termin, Buchungsart, Zahlung und AGB
     form.classList.toggle('is-interest', current.interest);
     if (current.interest) {
-      document.getElementById('booking-detail').textContent = current.detail + (current.price ? ' · ' : '');
+      document.getElementById('booking-detail').textContent = current.detail + (current.price ? ', ' : '');
       submit.textContent = 'Interesse senden';
       dialog.showModal();
       form.querySelector('input[name="name"]').focus();
