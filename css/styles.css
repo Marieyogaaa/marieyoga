@@ -16,8 +16,8 @@
   --nav-h: 76px;
   --pad-x: clamp(20px, 5vw, 60px);
   --pad-y: clamp(64px, 9vw, 120px);
-  --r: 16px;
-  --r-lg: 28px;
+  --r: 4px;
+  --r-lg: 4px;
   --max-w: 1200px;
 }
 
@@ -1067,7 +1067,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   color: var(--green);
   padding: 12px 14px;
   border: 1px solid rgba(52,79,56,0.25);
-  border-radius: 10px;
+  border-radius: 4px;
   background: var(--cream);
 }
 .booking-field input:focus,
@@ -1081,7 +1081,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   color: var(--green);
   padding: 12px 14px;
   border: 1px solid rgba(52,79,56,0.25);
-  border-radius: 10px;
+  border-radius: 4px;
   background: var(--cream);
   resize: vertical;
 }
@@ -1294,7 +1294,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   align-items: center;
   gap: 32px;
   padding: 22px 32px;
-  border-radius: 20px;
+  border-radius: 4px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.22);
   max-width: min(820px, calc(100vw - 40px));
 }
@@ -1348,7 +1348,7 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
   #cookie-banner {
     flex-direction: column;
     align-items: flex-start;
-    border-radius: 16px;
+    border-radius: 4px;
     bottom: 12px;
     padding: 20px 20px;
     gap: 20px;
@@ -1992,7 +1992,7 @@ h3 { text-wrap: balance; }
 
 /* Frei stehende Bilder: leicht gerundet. Bilder, die bis an den Rand
    oder in eine Bildhälfte laufen, bleiben eckig. Buttons bleiben rund. */
-:root { --r-img: 14px; }
+:root { --r-img: 4px; }
 .offer-tile-img,
 .event-featured-img,
 .physio-stack .ps-main,
@@ -2150,3 +2150,9 @@ body { font-size: 17px; }
 .retreat-teaser.sec { padding: var(--pad-y) 0; }
 .sec--salbei { --text-muted: rgba(52, 79, 56, 0.88); }
 .ig-feed-header h2 { max-width: 640px; }
+.angebote-video { border-radius: var(--r-img); }
+
+/* Preisboxen: Wert bricht nicht um, Label besser lesbar */
+.price-row { gap: 24px; }
+.price-row > :last-child { white-space: nowrap; text-align: right; }
+.price-block-label { color: var(--text-muted); }
