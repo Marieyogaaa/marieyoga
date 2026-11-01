@@ -1764,15 +1764,6 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 .hero-split .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-split-photo { position: relative; overflow: hidden; }
-/* heller Schleier oben im Foto, damit die grünen Navigationslinks lesbar bleiben */
-.hero-split-photo::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: calc(var(--nav-h) + 70px);
-  background: linear-gradient(to bottom, rgba(255,253,247,0.82) 0%, rgba(255,253,247,0.45) 55%, rgba(255,253,247,0) 100%);
-  pointer-events: none;
-}
 .hero-split-photo img {
   position: absolute;
   inset: 0;
@@ -1808,3 +1799,11 @@ h3 { font-size: clamp(20px, 2vw, 26px); }
 }
 /* Startseite, Navigation noch transparent: Logo dunkler, damit es auf Flieder sichtbar ist */
 .nav-split-hero:not(.nav-scrolled) .nav-logo img { filter: brightness(0.55) saturate(1.4); }
+.nav-split-hero:not(.nav-scrolled) .nav-links a.on-photo {
+  color: var(--cream);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+.nav-split-hero:not(.nav-scrolled) .nav-links a.on-photo::after { background: var(--cream); }
+@media (max-width: 680px) {
+  .nav-split-hero:not(.nav-scrolled) .nav-links a.on-photo { color: var(--green); text-shadow: none; }
+}
