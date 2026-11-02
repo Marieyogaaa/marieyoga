@@ -2980,3 +2980,6 @@ p, li { font-weight: 400; }
 /* Retreat-Rundgang: Fotos kleiner, Text darunter behält die volle Spaltenbreite */
 .raum-galerie { max-width: 400px; }
 @media (max-width: 900px) { .raum-galerie { max-width: 360px; } }
+
+/* Retreat-Seite: erst die Termin-Übersicht, dann Einleitung und Rundgang */
+.retreat-content > .container > [data-category] { margin-bottom: var(--pad-y); }
