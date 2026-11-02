@@ -2976,3 +2976,7 @@ p, li { font-weight: 400; }
   .faq-liste .faq-item p { padding-right: 0; }
   .raum-galerie { max-width: 560px; }
 }
+
+/* Retreat-Rundgang: Fotos kleiner, Text darunter behält die volle Spaltenbreite */
+.raum-galerie { max-width: 400px; }
+@media (max-width: 900px) { .raum-galerie { max-width: 360px; } }
