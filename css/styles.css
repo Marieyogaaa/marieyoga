@@ -2842,3 +2842,8 @@ p, li { font-weight: 400; }
   .booking-table td:last-child { padding-top: 10px; }
   .booking-table td:last-child .btn { width: auto; }
 }
+
+/* Schluss-Aufruf der Startseite auf hellem Salbei-Flieder-Verlauf */
+.closing-cta.sec--salbei {
+  background: var(--bg-salbei) url('../uploads/texturen/textur-lichtschleier-leicht.webp') center / cover no-repeat;
+}
