@@ -2668,8 +2668,9 @@ body { font-size: 17px; }
 /* Tastatur: der Strich wandert zum fokussierten Reiter (js/angebote-filter.js) */
 .filter-btn:focus-visible { outline: none; color: var(--green); }
 .angebote-filter .filter-indicator {
-  height: 2px;
-  margin-top: -1.5px;
+  top: auto;
+  bottom: -1.5px;
+  height: 2px !important;
   border-radius: 2px;
   background: var(--green);
   transition: transform 380ms cubic-bezier(0.23, 1, 0.32, 1), width 380ms cubic-bezier(0.23, 1, 0.32, 1);

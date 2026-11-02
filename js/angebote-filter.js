@@ -14,9 +14,9 @@
   bar.prepend(indicator);
   bar.classList.add('has-indicator');
 
-  // Linie unter dem aktiven bzw. gehoverten Filter (Höhe kommt aus dem CSS)
+  // Linie unter dem aktiven bzw. gehoverten Filter (Höhe und Lage unten kommen aus dem CSS)
   function moveIndicator(target) {
-    indicator.style.transform = 'translate(' + target.offsetLeft + 'px, ' + (target.offsetTop + target.offsetHeight) + 'px)';
+    indicator.style.transform = 'translateX(' + target.offsetLeft + 'px)';
     indicator.style.width = target.offsetWidth + 'px';
     buttons.forEach(function (btn) { btn.classList.toggle('is-highlighted', btn === target); });
   }
