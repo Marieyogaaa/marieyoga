@@ -2703,3 +2703,130 @@ body { font-size: 16.5px; line-height: 1.68; font-weight: 400; -webkit-font-smoo
 p, li { font-weight: 400; }
 .testi-name { font-weight: 500; }
 .booking-table td:nth-child(3), #booking-date-fixed strong { font-weight: 500; }
+
+/* ============================================
+   Termin-Zeilen wie eine ruhige Preisliste (Buchen-Tabelle, Retreat-Termine):
+   feine Linien, keine Kästen, beim Hovern färbt sich die ganze Zeile
+   in Flieder und die Aktion rechts wird kursiv
+   ============================================ */
+:root { --zeile-linie: rgba(52,79,56,0.32); --zeile-dauer: 500ms; }
+.is-zeile { cursor: pointer; }
+.zeile-aktion,
+.booking-table td:last-child .btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--green);
+  font-family: var(--f-b);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  transition: color var(--zeile-dauer) ease-in-out;
+}
+.zeile-aktion::after,
+.booking-table td:last-child .btn::after {
+  content: '\2192';
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.zeile-aktion:focus-visible,
+.booking-table td:last-child .btn:focus-visible { outline: 2px solid var(--wisteria-tief); outline-offset: 4px; }
+
+/* Buchen-Tabelle */
+.booking-table thead {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.booking-table tbody { border-top: 1px solid var(--zeile-linie); }
+.booking-table tbody td {
+  padding: 28px 16px;
+  border-bottom: 1px solid var(--zeile-linie);
+  font-size: 15px;
+  color: var(--green);
+  transition: color var(--zeile-dauer) ease-in-out;
+}
+.booking-table tbody td:first-child { padding-left: 0; width: 40%; }
+.booking-table tbody td:last-child { padding-right: 0; }
+.booking-table td:first-child strong { font-size: 22px; line-height: 1.25; }
+.booking-table td:first-child span,
+.booking-table td:first-child strong,
+.booking-table td:nth-child(3) { transition: color var(--zeile-dauer) ease-in-out; }
+.booking-table td:nth-child(3) { font-weight: 400; }
+.booking-table td:last-child .btn:hover { background: none; color: inherit; }
+
+/* Retreat-Termine: Datum | Titel und Preis | Beschreibung | Aktion */
+.dates-grid { display: block; margin: 40px 0; border-top: 1px solid var(--zeile-linie); }
+.date-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.3fr) minmax(0, 1.5fr) auto;
+  grid-template-areas:
+    "datum badge  text aktion"
+    "datum titel  text aktion"
+    "datum preis  text aktion"
+    "datum hinweis text aktion";
+  column-gap: clamp(20px, 3vw, 44px);
+  row-gap: 0;
+  align-items: center;
+  padding: 28px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--zeile-linie);
+  border-radius: 0;
+}
+.date-card > * { transition: color var(--zeile-dauer) ease-in-out, border-color var(--zeile-dauer) ease-in-out; }
+.date-card .d-month {
+  grid-area: datum;
+  margin: 0;
+  font-family: var(--f-akzent);
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--green);
+}
+.date-card .cs-badge { grid-area: badge; justify-self: start; margin: 0 0 8px; background: none; border: 1px solid currentColor; color: var(--wisteria-tief); padding: 3px 10px; }
+.date-card .d-title { grid-area: titel; font-size: 23px; line-height: 1.25; }
+.date-card .d-price { grid-area: preis; margin-top: 6px; font-family: var(--f-b); font-size: 15px; color: var(--green); }
+.date-card .d-hinweis { grid-area: hinweis; font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.date-card .d-meta { grid-area: text; font-size: 15px; line-height: 1.55; }
+.date-card .zeile-aktion { grid-area: aktion; justify-self: end; }
+
+@media (hover: hover) and (pointer: fine) {
+  .booking-table tbody tr:hover td,
+  .booking-table tbody tr:hover td span,
+  .booking-table tbody tr:hover td strong,
+  .booking-table tbody tr:hover .btn,
+  .date-card:hover > *,
+  .date-card:hover .zeile-aktion { color: var(--wisteria-tief); }
+  .booking-table tbody tr:hover .btn,
+  .date-card:hover .zeile-aktion { font-family: var(--f-akzent); font-style: italic; }
+  .booking-table tbody tr:hover .btn::after,
+  .date-card:hover .zeile-aktion::after { transform: translateX(4px); }
+}
+
+@media (max-width: 900px) {
+  .date-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "datum datum" "badge badge" "titel titel" "text text" "preis aktion" "hinweis hinweis";
+    row-gap: 6px;
+  }
+  .date-card .d-month { margin-bottom: 4px; font-size: 15px; }
+  .date-card .d-meta { margin-top: 4px; }
+  .date-card .d-price { margin-top: 10px; }
+  .date-card .zeile-aktion { align-self: end; }
+}
+@media (max-width: 680px) {
+  .booking-table tbody { border-top: 1px solid var(--zeile-linie); }
+  .booking-table tbody tr { padding: 22px 0; border-bottom: 1px solid var(--zeile-linie); }
+  .booking-table tbody td { padding: 3px 0; border: 0; width: auto !important; }
+  .booking-table td:last-child { padding-top: 10px; }
+  .booking-table td:last-child .btn { width: auto; }
+}
