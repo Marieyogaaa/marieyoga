@@ -105,21 +105,19 @@
         <a href="#programm" class="btn btn-ghost">Mehr erfahren</a>
       </div>
     </div>
-    <button class="rhs-arrow rhs-prev" aria-label="Vorheriges Bild">&#8592;</button>
-    <button class="rhs-arrow rhs-next" aria-label="Nächstes Bild">&#8594;</button>
     <div class="rhs-dots">
-      <button class="rhs-dot active"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
-      <button class="rhs-dot"></button>
+      <button class="rhs-dot active" aria-label="Bild 1"></button>
+      <button class="rhs-dot" aria-label="Bild 2"></button>
+      <button class="rhs-dot" aria-label="Bild 3"></button>
+      <button class="rhs-dot" aria-label="Bild 4"></button>
+      <button class="rhs-dot" aria-label="Bild 5"></button>
+      <button class="rhs-dot" aria-label="Bild 6"></button>
+      <button class="rhs-dot" aria-label="Bild 7"></button>
+      <button class="rhs-dot" aria-label="Bild 8"></button>
+      <button class="rhs-dot" aria-label="Bild 9"></button>
+      <button class="rhs-dot" aria-label="Bild 10"></button>
+      <button class="rhs-dot" aria-label="Bild 11"></button>
+      <button class="rhs-dot" aria-label="Bild 12"></button>
     </div>
   </section>
   <script>
@@ -134,10 +132,16 @@
       slides[cur].classList.add('active');
       dots[cur].classList.add('active');
     }
-    var timer = setInterval(function(){ goTo(cur+1); }, 5000);
-    dots.forEach(function(d,i){ d.onclick = function(){ clearInterval(timer); goTo(i); timer = setInterval(function(){ goTo(cur+1); },5000); }; });
-    document.querySelector('.rhs-prev').onclick = function(){ clearInterval(timer); goTo(cur-1); timer = setInterval(function(){ goTo(cur+1); },5000); };
-    document.querySelector('.rhs-next').onclick = function(){ clearInterval(timer); goTo(cur+1); timer = setInterval(function(){ goTo(cur+1); },5000); };
+    // Läuft ruhig von allein weiter; ein Klick aufs Bild springt zum nächsten
+    var DAUER = 7000;
+    var timer;
+    function neuStarten(){ clearInterval(timer); timer = setInterval(function(){ goTo(cur+1); }, DAUER); }
+    neuStarten();
+    dots.forEach(function(d,i){ d.onclick = function(e){ e.stopPropagation(); goTo(i); neuStarten(); }; });
+    document.querySelector('.rhs').addEventListener('click', function(e){
+      if (e.target.closest('a, button')) return;
+      goTo(cur+1); neuStarten();
+    });
   })();
   </script>
 
@@ -348,7 +352,7 @@
   </section>
 
   <!-- Retreat Testimonials -->
-  <section class="testimonials-section testimonials-photo">
+  <section class="testimonials-section testimonials-verlauf sec">
     <div class="container">
       <div class="testimonials-header">
         <h2>Liebe Worte</h2>
@@ -455,6 +459,7 @@
   </footer>
 
   <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
   <script src="js/angebote-filter.js"></script>
   <script src="js/testimonial-slider.js"></script>
   <script src="js/cookie-banner.js"></script>
