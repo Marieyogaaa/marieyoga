@@ -8,16 +8,16 @@
 
   var bar = document.querySelector('.angebote-filter');
 
-  // Gleitender Hintergrund: folgt beim Hovern der Maus, sonst sitzt er auf dem aktiven Filter
+  // Gleitende Linie: folgt beim Hovern der Maus, sonst sitzt sie unter dem aktiven Filter
   var indicator = document.createElement('span');
   indicator.className = 'filter-indicator no-anim';
   bar.prepend(indicator);
   bar.classList.add('has-indicator');
 
+  // Linie unter dem aktiven bzw. gehoverten Filter (Höhe kommt aus dem CSS)
   function moveIndicator(target) {
-    indicator.style.transform = 'translate(' + target.offsetLeft + 'px, ' + target.offsetTop + 'px)';
+    indicator.style.transform = 'translate(' + target.offsetLeft + 'px, ' + (target.offsetTop + target.offsetHeight) + 'px)';
     indicator.style.width = target.offsetWidth + 'px';
-    indicator.style.height = target.offsetHeight + 'px';
     buttons.forEach(function (btn) { btn.classList.toggle('is-highlighted', btn === target); });
   }
 

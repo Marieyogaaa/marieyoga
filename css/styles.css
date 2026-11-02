@@ -2637,6 +2637,61 @@ body { font-size: 17px; }
   .testimonials-grid.is-stimmen .testimonial-card { transform: none; transition: none; }
 }
 
+/* Filter: ruhige Textreiter mit gleitender Linie statt Pillen-Box */
+.angebote-filter {
+  gap: 4px clamp(22px, 4vw, 48px);
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(52,79,56,0.16);
+  border-radius: 0;
+  background: transparent;
+}
+.filter-btn {
+  padding: 14px 2px;
+  border-radius: 0;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 200ms ease-out;
+}
+.filter-btn.is-highlighted, .filter-btn.is-active { color: var(--green); }
+/* kein Kasten beim Klicken oder Antippen, nur der Strich zeigt die Auswahl */
+.filter-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none !important;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.filter-btn:focus { outline: none; }
+/* Tastatur: der Strich wandert zum fokussierten Reiter (js/angebote-filter.js) */
+.filter-btn:focus-visible { outline: none; color: var(--green); }
+.angebote-filter .filter-indicator {
+  height: 2px;
+  margin-top: -1.5px;
+  border-radius: 2px;
+  background: var(--green);
+  transition: transform 380ms cubic-bezier(0.23, 1, 0.32, 1), width 380ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.angebote-filter .filter-indicator.no-anim { transition: none; }
+.angebote-filter:not(.has-indicator) .filter-btn.is-active { background: none; color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
+@media (max-width: 560px) {
+  /* eine Zeile, bei Bedarf seitlich wischbar; wenige Reiter bleiben mittig */
+  .angebote-filter {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .angebote-filter::-webkit-scrollbar { display: none; }
+  .angebote-filter > .filter-btn { flex: none; }
+  .angebote-filter > .filter-btn:first-of-type { margin-left: auto; }
+  .angebote-filter > .filter-btn:last-of-type { margin-right: auto; }
+  .filter-btn { font-size: 12px; letter-spacing: 0.1em; }
+}
+
 /* Midsommar-Foto ganz zeigen, ohne Abdunklung */
 .events-midsommar-photo { height: auto; aspect-ratio: 1714 / 892; max-height: 82vh; }
 .events-midsommar-photo::after { display: none; }
