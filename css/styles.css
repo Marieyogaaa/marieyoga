@@ -2983,3 +2983,17 @@ p, li { font-weight: 400; }
 
 /* Retreat-Seite: erst die Termin-Übersicht, dann Einleitung und Rundgang */
 .retreat-content > .container > [data-category] { margin-bottom: var(--pad-y); }
+
+/* Retreat-Seite: Einleitung zweispaltig, Überschrift links, kurzer Satz rechts */
+.retreat-ueber {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(40px, 7vw, 120px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.retreat-ueber h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1.08; }
+.retreat-ueber p { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: var(--text-muted); max-width: 460px; }
+@media (max-width: 900px) {
+  .retreat-ueber { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+}
