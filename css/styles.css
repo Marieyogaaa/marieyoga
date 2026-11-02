@@ -2847,3 +2847,132 @@ p, li { font-weight: 400; }
 .closing-cta.sec--salbei {
   background: var(--bg-salbei) url('../uploads/texturen/textur-lichtschleier-leicht.webp') center / cover no-repeat;
 }
+
+/* ============================================
+   Retreat-Seite: drei Zeilen wie ein Raum-Rundgang.
+   Links bleibt die Überschrift beim Scrollen stehen,
+   rechts gleiten Fotos mit Zähler, darunter Text
+   ============================================ */
+.raum { margin-bottom: var(--pad-y); }
+.raum-zeile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(40px, 7vw, 120px);
+  align-items: start;
+  padding: clamp(56px, 8vw, 112px) 0;
+  border-top: 1px solid var(--zeile-linie);
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+}
+.raum-label {
+  position: sticky;
+  top: calc(var(--nav-h) + 40px);
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.08;
+}
+.raum-inhalt h3 { font-size: clamp(24px, 2.2vw, 30px); line-height: 1.25; margin: 36px 0 16px; }
+.raum-inhalt p { color: var(--text-muted); max-width: 520px; }
+.raum-inhalt p + p { margin-top: 12px; }
+.raum-inhalt .zeile-aktion { margin-top: 22px; }
+@media (hover: hover) and (pointer: fine) {
+  .raum-inhalt .zeile-aktion:hover { color: var(--wisteria-tief); font-family: var(--f-akzent); font-style: italic; }
+  .raum-inhalt .zeile-aktion:hover::after { transform: translateX(4px); }
+}
+
+.raum-galerie { position: relative; }
+.raum-galerie-track {
+  display: flex;
+  aspect-ratio: 4 / 5;
+  overflow: visible;
+  transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+.raum-galerie { overflow: hidden; border-radius: var(--r-img); }
+.raum-galerie-track > img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.raum-galerie-leiste {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+}
+.raum-galerie-zahl { font-family: var(--f-akzent); font-style: italic; font-size: 14px; color: var(--green); font-variant-numeric: tabular-nums; }
+.raum-galerie-pfeile { display: flex; gap: 4px; }
+.raum-pfeil {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--green);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 160ms ease-out, background-color 160ms ease-out;
+}
+.raum-pfeil:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) {
+  .raum-pfeil:hover { color: var(--wisteria-tief); background: rgba(193,174,226,0.18); }
+}
+@media (max-width: 900px) {
+  .raum-zeile { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+  .raum-label { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .raum-galerie-track { transition: none; }
+}
+
+/* Häufige Fragen (Retreats): links die Überschrift, rechts Zeilen mit feinen Linien,
+   die sich beim Hovern flieder färben; geöffnet wird die Frage kursiv */
+.faq-zeilen { padding: var(--pad-y) 0; background: var(--bg-lace); }
+.faq-zeilen .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  column-gap: clamp(40px, 7vw, 120px);
+  align-items: start;
+}
+.faq-titel {
+  position: sticky;
+  top: calc(var(--nav-h) + 40px);
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.1;
+}
+.faq-titel em { font-family: var(--f-akzent); font-style: italic; font-weight: 400; font-size: 0.92em; }
+.faq-liste { border-top: 1px solid var(--zeile-linie); }
+.faq-liste .faq-item { border-top: 0; border-bottom: 1px solid var(--zeile-linie); }
+.faq-liste .faq-item summary {
+  font-size: clamp(19px, 1.7vw, 23px);
+  line-height: 1.3;
+  padding: 26px 0;
+  transition: color var(--zeile-dauer) ease-in-out;
+}
+.faq-liste .faq-item summary::after {
+  content: '+';
+  width: 34px;
+  height: 34px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--green);
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), color var(--zeile-dauer) ease-in-out;
+}
+.faq-liste .faq-item[open] summary { font-family: var(--f-akzent); font-style: italic; color: var(--wisteria-tief); }
+.faq-liste .faq-item[open] summary::after { color: var(--wisteria-tief); }
+.faq-liste .faq-item p { font-size: 16px; padding: 0 56px 28px 0; max-width: none; }
+.faq-liste .faq-item summary:focus-visible { outline: 2px solid var(--wisteria-tief); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .faq-liste .faq-item summary:hover,
+  .faq-liste .faq-item summary:hover::after { color: var(--wisteria-tief); }
+}
+@media (max-width: 900px) {
+  .faq-zeilen .container { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
+  .faq-titel { position: static; }
+  .faq-liste .faq-item p { padding-right: 0; }
+  .raum-galerie { max-width: 560px; }
+}

@@ -10,7 +10,7 @@
     '.retreat-text > h2', '.retreat-text > p', '.retreat-rows > a', '.retreat-ctas',
     '.about-img-wrap', '.about-text', '.testimonials-header', '.testimonials-verlauf .testimonials-grid',
     '.angebote-item', '.event-featured', '.date-card', '.price-row',
-    '.ig-feed-section h2', '.closing-cta .container > *', '.page-hero h1', '.page-hero p'
+    '.raum-label', '.raum-inhalt', '.ig-feed-section h2', '.closing-cta .container > *', '.page-hero h1', '.page-hero p'
   ].join(',');
 
   var els = Array.prototype.slice.call(document.querySelectorAll(ZIELE));
