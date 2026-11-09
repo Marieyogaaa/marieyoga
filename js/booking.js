@@ -15,6 +15,7 @@
   var payBox   = document.getElementById('booking-pay');
   var payLinks = document.getElementById('booking-pay-links');
   var payIntro = document.getElementById('booking-pay-intro');
+  var roomBox  = document.getElementById('booking-room');
   var current  = null;
 
   // Adresse der Google-Apps-Script-Web-App (siehe automation/google-apps-script/ANLEITUNG.md).
@@ -81,7 +82,35 @@
     var checked = form.querySelector('input[name="type"]:checked');
     var paid = !checked || checked.value === 'einzel';
     payment.hidden = !paid;
+    showRooms(paid);
     submit.textContent = paid ? 'Zahlungspflichtig buchen' : 'Verbindlich anmelden';
+  }
+
+  // Mehrere Zahlungsoptionen (z. B. Zimmerarten): Auswahl im Zahlungskasten
+  function buildRooms() {
+    roomBox.innerHTML = '';
+    if (!current || current.payOptions.length < 2) return;
+    var legend = document.createElement('span');
+    legend.textContent = 'Zimmerart wählen:';
+    legend.style.cssText = 'font-size:14px;';
+    roomBox.appendChild(legend);
+    current.payOptions.forEach(function (opt, i) {
+      var label = document.createElement('label');
+      label.style.cssText = 'display:flex;align-items:center;gap:10px;cursor:pointer;';
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'room';
+      input.value = String(i);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(opt.label));
+      roomBox.appendChild(label);
+    });
+  }
+
+  function showRooms(paid) {
+    var multi = paid && current && current.payOptions.length > 1;
+    roomBox.hidden = !multi;
+    roomBox.style.display = multi ? 'flex' : 'none';
   }
 
   var SUCCESS_TEXT = {
@@ -111,7 +140,10 @@
     success.hidden = true;
     errorBox.hidden = true;
     payBox.hidden = true;
-    payment.querySelector('p').textContent = current.payOptions.length
+    buildRooms();
+    payment.querySelector('p').textContent = current.payOptions.length > 1
+      ? 'Wähle deine Zimmerart. Nach dem Absenden kannst du direkt online bezahlen.'
+      : current.payOptions.length
       ? 'Nach dem Absenden kannst du direkt online bezahlen.'
       : 'Hier kannst du bald direkt online bezahlen.';
 
@@ -187,7 +219,10 @@
 
     if (!dateSel.value) return showError('Bitte wähle deinen Termin aus.');
     if (!type)  return showError('Bitte wähle aus, wie du buchen möchtest.');
+    var room = form.querySelector('input[name="room"]:checked');
+    if (type.value === 'einzel' && current.payOptions.length > 1 && !room) return showError('Bitte wähle deine Zimmerart aus.');
     if (!form.elements.agb.checked) return showError('Bitte stimme den AGB zu, um die Buchung abzuschließen.');
+    var roomOpt = room ? current.payOptions[Number(room.value)] : null;
 
     send({
       kind:      'booking',
@@ -196,7 +231,8 @@
       dateLabel: dateSel.options[dateSel.selectedIndex].text,
       price:     current.price,
       type:      type.value,
-      typeLabel: TYPE_LABELS[type.value],
+      typeLabel: roomOpt ? 'Zimmer: ' + roomOpt.label : TYPE_LABELS[type.value],
+      payIndex:  roomOpt ? Number(room.value) : null,
       name:      name,
       email:     email,
       website:   form.elements.website.value
@@ -212,8 +248,9 @@
     payLinks.innerHTML = '';
     payIntro.hidden = true;
     if (!paid) return;
-    payIntro.hidden = current.payOptions.length < 2;
-    current.payOptions.forEach(function (opt) {
+    var shown = (data.payIndex !== null && data.payIndex !== undefined) ? [current.payOptions[data.payIndex]] : current.payOptions;
+    payIntro.hidden = shown.length < 2;
+    shown.forEach(function (opt) {
       var a = document.createElement('a');
       a.className = 'btn btn-primary';
       a.href = opt.url;
