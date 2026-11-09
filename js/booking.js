@@ -16,8 +16,6 @@
   var payLinks = document.getElementById('booking-pay-links');
   var payIntro = document.getElementById('booking-pay-intro');
   var roomBox  = document.getElementById('booking-room');
-  var payInline = document.getElementById('booking-pay-inline');
-  var payWin   = null; // Zahlungs-Tab, der beim Klick auf den Bezahl-Button im Kasten vorab geöffnet wird
   var current  = null;
 
   // Adresse der Google-Apps-Script-Web-App (siehe automation/google-apps-script/ANLEITUNG.md).
@@ -143,11 +141,10 @@
     errorBox.hidden = true;
     payBox.hidden = true;
     buildRooms();
-    payInline.hidden = current.payOptions.length !== 1;
     payment.querySelector('p').textContent = current.payOptions.length > 1
-      ? 'Wähle deine Zimmerart. Nach dem Absenden kannst du direkt online bezahlen.'
+      ? 'Wähle deine Zimmerart. Mit „Zahlungspflichtig buchen“ gelangst du direkt zur sicheren Online-Zahlung.'
       : current.payOptions.length
-      ? 'Fülle das Formular aus und bezahle direkt online. Deine Anmeldung geht dabei automatisch mit raus.'
+      ? 'Mit „Zahlungspflichtig buchen“ gelangst du direkt zur sicheren Online-Zahlung.'
       : 'Hier kannst du bald direkt online bezahlen.';
 
     document.getElementById('booking-dialog-title').textContent = current.offer;
@@ -186,21 +183,12 @@
   }
 
   function showError(msg) {
-    if (payWin) { payWin.close(); payWin = null; }
     errorBox.textContent = msg;
     errorBox.hidden = false;
   }
 
   document.querySelectorAll('.booking-open').forEach(function (btn) {
     btn.addEventListener('click', function () { open(btn.closest('tr')); });
-  });
-
-  // Bezahl-Button im Zahlungskasten: erst anmelden (mit Prüfung), dann Stripe in neuem Tab öffnen
-  payInline.addEventListener('click', function (e) {
-    e.preventDefault();
-    payWin = window.open('about:blank', '_blank');
-    form.requestSubmit();
-    if (!errorBox.hidden && payWin) { payWin.close(); payWin = null; }
   });
 
   form.addEventListener('change', function (e) {
@@ -262,7 +250,6 @@
     if (!paid) return;
     var shown = (data.payIndex !== null && data.payIndex !== undefined) ? [current.payOptions[data.payIndex]] : current.payOptions;
     payIntro.hidden = shown.length < 2;
-    if (payWin) { payWin.location.href = shown[0].url; payWin = null; }
     shown.forEach(function (opt) {
       var a = document.createElement('a');
       a.className = 'btn btn-primary';
@@ -274,8 +261,19 @@
     });
   }
 
+  // Bezahlbare Buchung mit Stripe-Link: direkt zur Zahlung, ohne Kontakt-Mail
+  function payUrlFor(data) {
+    if (!current || data.kind !== 'booking' || data.type !== 'einzel' || !current.payOptions.length) return '';
+    var opt = (data.payIndex !== null && data.payIndex !== undefined) ? current.payOptions[data.payIndex] : current.payOptions[0];
+    return opt ? opt.url : '';
+  }
+
   function send(data) {
-    if (!BOOKING_ENDPOINT) return sendViaMail(data);
+    var payUrl = payUrlFor(data);
+    if (!BOOKING_ENDPOINT) {
+      if (payUrl) { window.location.href = payUrl; return; }
+      return sendViaMail(data);
+    }
 
     var label = submit.textContent;
     submit.disabled = true;
@@ -286,6 +284,7 @@
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.error);
+        if (payUrl) { window.location.href = payUrl; return; }
         showSuccess(data);
       })
       .catch(function () {
