@@ -13,7 +13,8 @@
   var errorBox = document.getElementById('booking-error');
   var dateSel  = document.getElementById('booking-date');
   var payBox   = document.getElementById('booking-pay');
-  var payLink  = document.getElementById('booking-pay-link');
+  var payLinks = document.getElementById('booking-pay-links');
+  var payIntro = document.getElementById('booking-pay-intro');
   var current  = null;
 
   // Adresse der Google-Apps-Script-Web-App (siehe automation/google-apps-script/ANLEITUNG.md).
@@ -88,13 +89,21 @@
     interest: 'Danke für dein Interesse! Ich melde mich bei dir, sobald Termin und Details feststehen.'
   };
 
+  // Zahlungsoptionen: data-pay-options='[{"label":"…","url":"…"}]' oder einzelner Link in data-pay-url
+  function parsePayOptions(row) {
+    if (row.dataset.payOptions) {
+      try { return JSON.parse(row.dataset.payOptions); } catch (e) { return []; }
+    }
+    return row.dataset.payUrl ? [{ label: 'Jetzt online bezahlen', url: row.dataset.payUrl }] : [];
+  }
+
   function open(row) {
     current = {
       offer:    row.dataset.offer,
       detail:   row.dataset.detail,
       price:    row.dataset.price,
       interest: row.dataset.mode === 'interest',
-      payUrl:   row.dataset.payUrl || ''
+      payOptions: parsePayOptions(row)
     };
 
     form.reset();
@@ -102,7 +111,7 @@
     success.hidden = true;
     errorBox.hidden = true;
     payBox.hidden = true;
-    payment.querySelector('p').textContent = current.payUrl
+    payment.querySelector('p').textContent = current.payOptions.length
       ? 'Nach dem Absenden kannst du direkt online bezahlen.'
       : 'Hier kannst du bald direkt online bezahlen.';
 
@@ -198,9 +207,21 @@
   function showSuccess(data) {
     form.hidden = true;
     success.hidden = false;
-    var paid = current && current.payUrl && data && data.kind === 'booking' && data.type === 'einzel';
+    var paid = current && current.payOptions.length && data && data.kind === 'booking' && data.type === 'einzel';
     payBox.hidden = !paid;
-    if (paid) payLink.href = current.payUrl;
+    payLinks.innerHTML = '';
+    payIntro.hidden = true;
+    if (!paid) return;
+    payIntro.hidden = current.payOptions.length < 2;
+    current.payOptions.forEach(function (opt) {
+      var a = document.createElement('a');
+      a.className = 'btn btn-primary';
+      a.href = opt.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = opt.label === 'Jetzt online bezahlen' ? opt.label : 'Bezahlen: ' + opt.label;
+      payLinks.appendChild(a);
+    });
   }
 
   function send(data) {
