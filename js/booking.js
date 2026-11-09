@@ -76,12 +76,12 @@
     wellpass: 'Wellpass'
   };
 
-  // Bezahlung und Button-Text hängen von der Buchungsart ab:
-  // Wellpass braucht keine Zahlung.
+  // Button-Text hängt von der Buchungsart ab, Wellpass braucht keine Zahlung.
+  // Der Kasten erscheint nur, wenn es etwas zu wählen gibt (z. B. Zimmerart).
   function updatePayment() {
     var checked = form.querySelector('input[name="type"]:checked');
     var paid = !checked || checked.value === 'einzel';
-    payment.hidden = !paid;
+    payment.hidden = !paid || !current || current.payOptions.length < 2;
     showRooms(paid);
     submit.textContent = paid ? 'Zahlungspflichtig buchen' : 'Verbindlich anmelden';
   }
@@ -141,11 +141,6 @@
     errorBox.hidden = true;
     payBox.hidden = true;
     buildRooms();
-    payment.querySelector('p').textContent = current.payOptions.length > 1
-      ? 'Wähle deine Zimmerart. Mit „Zahlungspflichtig buchen“ gelangst du direkt zur sicheren Online-Zahlung.'
-      : current.payOptions.length
-      ? 'Mit „Zahlungspflichtig buchen“ gelangst du direkt zur sicheren Online-Zahlung.'
-      : 'Hier kannst du bald direkt online bezahlen.';
 
     document.getElementById('booking-dialog-title').textContent = current.offer;
     document.getElementById('booking-price').textContent = current.price;
