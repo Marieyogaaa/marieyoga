@@ -13,7 +13,9 @@
   var errorBox = document.getElementById('booking-error');
   var dateSel  = document.getElementById('booking-date');
   var payBox   = document.getElementById('booking-pay');
-  var payLink  = document.getElementById('booking-pay-link');
+  var payLinks = document.getElementById('booking-pay-links');
+  var payIntro = document.getElementById('booking-pay-intro');
+  var roomBox  = document.getElementById('booking-room');
   var current  = null;
 
   // Adresse der Google-Apps-Script-Web-App (siehe automation/google-apps-script/ANLEITUNG.md).
@@ -74,13 +76,41 @@
     wellpass: 'Wellpass'
   };
 
-  // Bezahlung und Button-Text hängen von der Buchungsart ab:
-  // Wellpass braucht keine Zahlung.
+  // Button-Text hängt von der Buchungsart ab, Wellpass braucht keine Zahlung.
+  // Der Kasten erscheint nur, wenn es etwas zu wählen gibt (z. B. Zimmerart).
   function updatePayment() {
     var checked = form.querySelector('input[name="type"]:checked');
     var paid = !checked || checked.value === 'einzel';
-    payment.hidden = !paid;
+    payment.hidden = !paid || !current || current.payOptions.length < 2;
+    showRooms(paid);
     submit.textContent = paid ? 'Zahlungspflichtig buchen' : 'Verbindlich anmelden';
+  }
+
+  // Mehrere Zahlungsoptionen (z. B. Zimmerarten): Auswahl im Zahlungskasten
+  function buildRooms() {
+    roomBox.innerHTML = '';
+    if (!current || current.payOptions.length < 2) return;
+    var legend = document.createElement('span');
+    legend.textContent = 'Zimmerart wählen:';
+    legend.style.cssText = 'font-size:14px;';
+    roomBox.appendChild(legend);
+    current.payOptions.forEach(function (opt, i) {
+      var label = document.createElement('label');
+      label.style.cssText = 'display:flex;align-items:center;gap:10px;cursor:pointer;';
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'room';
+      input.value = String(i);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(opt.label));
+      roomBox.appendChild(label);
+    });
+  }
+
+  function showRooms(paid) {
+    var multi = paid && current && current.payOptions.length > 1;
+    roomBox.hidden = !multi;
+    roomBox.style.display = multi ? 'flex' : 'none';
   }
 
   var SUCCESS_TEXT = {
@@ -88,13 +118,21 @@
     interest: 'Danke für dein Interesse! Ich melde mich bei dir, sobald Termin und Details feststehen.'
   };
 
+  // Zahlungsoptionen: data-pay-options='[{"label":"…","url":"…"}]' oder einzelner Link in data-pay-url
+  function parsePayOptions(row) {
+    if (row.dataset.payOptions) {
+      try { return JSON.parse(row.dataset.payOptions); } catch (e) { return []; }
+    }
+    return row.dataset.payUrl ? [{ label: 'Jetzt online bezahlen', url: row.dataset.payUrl }] : [];
+  }
+
   function open(row) {
     current = {
       offer:    row.dataset.offer,
       detail:   row.dataset.detail,
       price:    row.dataset.price,
       interest: row.dataset.mode === 'interest',
-      payUrl:   row.dataset.payUrl || ''
+      payOptions: parsePayOptions(row)
     };
 
     form.reset();
@@ -102,9 +140,7 @@
     success.hidden = true;
     errorBox.hidden = true;
     payBox.hidden = true;
-    payment.querySelector('p').textContent = current.payUrl
-      ? 'Nach dem Absenden kannst du direkt online bezahlen.'
-      : 'Hier kannst du bald direkt online bezahlen.';
+    buildRooms();
 
     document.getElementById('booking-dialog-title').textContent = current.offer;
     document.getElementById('booking-price').textContent = current.price;
@@ -178,7 +214,10 @@
 
     if (!dateSel.value) return showError('Bitte wähle deinen Termin aus.');
     if (!type)  return showError('Bitte wähle aus, wie du buchen möchtest.');
+    var room = form.querySelector('input[name="room"]:checked');
+    if (type.value === 'einzel' && current.payOptions.length > 1 && !room) return showError('Bitte wähle deine Zimmerart aus.');
     if (!form.elements.agb.checked) return showError('Bitte stimme den AGB zu, um die Buchung abzuschließen.');
+    var roomOpt = room ? current.payOptions[Number(room.value)] : null;
 
     send({
       kind:      'booking',
@@ -187,7 +226,8 @@
       dateLabel: dateSel.options[dateSel.selectedIndex].text,
       price:     current.price,
       type:      type.value,
-      typeLabel: TYPE_LABELS[type.value],
+      typeLabel: roomOpt ? 'Zimmer: ' + roomOpt.label : TYPE_LABELS[type.value],
+      payIndex:  roomOpt ? Number(room.value) : null,
       name:      name,
       email:     email,
       website:   form.elements.website.value
@@ -198,13 +238,37 @@
   function showSuccess(data) {
     form.hidden = true;
     success.hidden = false;
-    var paid = current && current.payUrl && data && data.kind === 'booking' && data.type === 'einzel';
+    var paid = current && current.payOptions.length && data && data.kind === 'booking' && data.type === 'einzel';
     payBox.hidden = !paid;
-    if (paid) payLink.href = current.payUrl;
+    payLinks.innerHTML = '';
+    payIntro.hidden = true;
+    if (!paid) return;
+    var shown = (data.payIndex !== null && data.payIndex !== undefined) ? [current.payOptions[data.payIndex]] : current.payOptions;
+    payIntro.hidden = shown.length < 2;
+    shown.forEach(function (opt) {
+      var a = document.createElement('a');
+      a.className = 'btn btn-primary';
+      a.href = opt.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = opt.label === 'Jetzt online bezahlen' ? opt.label : 'Bezahlen: ' + opt.label;
+      payLinks.appendChild(a);
+    });
+  }
+
+  // Bezahlbare Buchung mit Stripe-Link: direkt zur Zahlung, ohne Kontakt-Mail
+  function payUrlFor(data) {
+    if (!current || data.kind !== 'booking' || data.type !== 'einzel' || !current.payOptions.length) return '';
+    var opt = (data.payIndex !== null && data.payIndex !== undefined) ? current.payOptions[data.payIndex] : current.payOptions[0];
+    return opt ? opt.url : '';
   }
 
   function send(data) {
-    if (!BOOKING_ENDPOINT) return sendViaMail(data);
+    var payUrl = payUrlFor(data);
+    if (!BOOKING_ENDPOINT) {
+      if (payUrl) { window.location.href = payUrl; return; }
+      return sendViaMail(data);
+    }
 
     var label = submit.textContent;
     submit.disabled = true;
@@ -215,6 +279,7 @@
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.error);
+        if (payUrl) { window.location.href = payUrl; return; }
         showSuccess(data);
       })
       .catch(function () {
